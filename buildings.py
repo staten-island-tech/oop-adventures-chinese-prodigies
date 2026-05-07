@@ -26,3 +26,20 @@ class Housing(Building):
         else:
             print("Not Enough Space")
 
+class Barracks(Building):
+    def __init__(self, health, capacity):
+        super().__init__("Barracks", health)
+        self.capacity = capacity
+        self.soldiers = 0
+        self.people = 0
+
+    def add_people(self, amount):
+        if self.people + amount <= self.capacity:
+            self.people += amount
+            print(f"{amount} civilian/people entered the barrack")
+            print(f"{self.people} number of civilians/people are in the barracks now")
+        else:
+            print("Not Enough Space")
+
+    def train_soldiers(self, amount):
+    
