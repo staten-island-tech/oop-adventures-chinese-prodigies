@@ -1,9 +1,21 @@
 # import buildings
-# import decision
+import decision
 # import farm
 # import trade
 # import events
 # import buy
+import random
+
+def political_decision(kingdom):
+    print("Political event!")
+
+def war_decision(kingdom):
+    print("War event!")
+
+decisions = [
+    political_decision,
+    war_decision
+]
 
 print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people well! Please customize your KINGDOM: ")
 
@@ -58,9 +70,8 @@ else:
 
 
 class Kingdom:
-    def __init__(self, name, population, food, military, wealth, trade, natural_resources, decision):
+    def __init__(self, name, food, military, wealth, trade, natural_resources, decision):
         self.name = name
-        self.population = population
         self.food = food
         self.military = military
         self.wealth = wealth
@@ -68,6 +79,15 @@ class Kingdom:
         self.natural_resources = natural_resources
         self.make_political_decision = decision
         self.buildings = []
+        self.roles = {
+            "Civilians": 0,
+            "Soldiers": 0
+        }
+        
+        @property
+        def population(self):
+            return sum(self.roles.values())
+            
 
     def build(self, building, cost):
         if self.wealth >= cost:
@@ -100,7 +120,9 @@ class Kingdom:
 
     # def buy(self):
 
-    # def make_political_decision(self):
+    def make_political_decision(self):
+        decision = random.choice(decisions)
+        decision(self)
 
     # def trade(self):
     
