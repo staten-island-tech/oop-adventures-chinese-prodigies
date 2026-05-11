@@ -6,17 +6,6 @@ import decision
 # import buy
 import random
 
-def political_decision(kingdom):
-    print("Political event!")
-
-def war_decision(kingdom):
-    print("War event!")
-
-decisions = [
-    political_decision,
-    war_decision
-]
-
 print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people well! Please customize your KINGDOM: ")
 
 name = input("What's your empire's name? ")
