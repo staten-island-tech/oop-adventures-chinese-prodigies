@@ -1,21 +1,10 @@
 # import buildings
-import decision
+from gov import Decide
 # import farm
 # import trade
 # import events
 # import buy
 import random
-
-def political_decision(kingdom):
-    print("Political event!")
-
-def war_decision(kingdom):
-    print("War event!")
-
-decisions = [
-    political_decision,
-    war_decision
-]
 
 print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people well! Please customize your KINGDOM: ")
 
@@ -99,20 +88,6 @@ class Kingdom:
         else:
             print("Not enough wealth!")
 
-
-
-        # types_of_buildings = ["House", "Building", "Barracks"]
-        # for i, building in enumerate(types_of_buildings, 1):
-        #     print(f"{i}. {building}")
-        # choice = input("Choose a building to construct: ")
-        # if choice == "1":
-        #     print("You have constructed a House.")
-        # elif choice == "2":
-        #     print("You have constructed a Building.")
-        # elif choice == "3":
-        #     print("You have constructed a Barracks.")
-        # else:
-        #     print("Invalid choice.")
 
     # def farm(self):
 

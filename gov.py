@@ -1,8 +1,7 @@
 import random
-import game
 
 
-class Decision:
+class Decide:
     def __init__(self, decisions):
         self.original = decisions[:]
         self.reset()
