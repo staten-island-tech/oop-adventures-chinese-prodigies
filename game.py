@@ -59,17 +59,18 @@ else:
 
 
 class Kingdom:
-    def __init__(self, name, food, military, wealth, trade, natural_resources, decision):
+    def __init__(self, name, food, population, military, wealth, trade, natural_resources, decision):
         self.name = name
         self.food = food
         self.military = military
         self.wealth = wealth
         self.trade = trade
+        self.population = population
         self.natural_resources = natural_resources
         self.make_political_decision = decision
         self.buildings = []
         self.roles = {
-            "Civilians": 0,
+            "Civilians": population,
             "Soldiers": 0
         }
         
@@ -114,6 +115,16 @@ class Kingdom:
         print(f"Trade: {self.trade}")
         print(f"Natural Resources: {self.natural_resources}")
 
+kingdom = Kingdom(
+    name,
+    population,
+    food,
+    military,
+    wealth,
+    trade,
+    natural_resources
+)
+
 while True:
     print("\nWhat would you like to do? Your Empire relies on you!: ")
     print("1. Build")
@@ -128,25 +139,25 @@ while True:
     choice = input("> ")
 
     if choice == "1":
-        Kingdom.build()
+        kingdom.build()
 
     elif choice == "2":
-        Kingdom.farm()
+        kingdom.farm()
 
     elif choice == "3":
-        Kingdom.train_army()
+        kingdom.train_army()
 
     elif choice == "4":
-        Kingdom.buy()
+        kingdom.buy()
 
     elif choice == "5":
-        Kingdom.make_political_decision()
+        kingdom.make_political_decision()
 
     elif choice == "6":
-        Kingdom.trade()
+        kingdom.trade()
 
     elif choice == "7":
-        Kingdom.show_status()
+        kingdom.show_status()
 
     elif choice == "8":
         print("You have failed ur empire. Bye u worthless rat.....")
