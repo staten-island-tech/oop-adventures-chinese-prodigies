@@ -59,67 +59,177 @@ else:
 
 
 class Kingdom:
-    def __init__(self, name, food, military, wealth, trade, natural_resources, decision):
+
+    def __init__(self, name, population, food, military,
+                 wealth, trade, natural_resources):
+
         self.name = name
+        self.population = population
         self.food = food
         self.military = military
         self.wealth = wealth
         self.trade = trade
         self.natural_resources = natural_resources
-        self.make_political_decision = decision
         self.buildings = []
-        self.roles = {
-            "Civilians": 0,
-            "Soldiers": 0
-        }
-        
-        @property
-        def population(self):
-            return sum(self.roles.values())
-            
 
-    def build(self, building, cost):
-        if self.wealth >= cost:
-            self.wealth -= cost
-            self.building.append(building)
 
-            print(f"{building.name} was constructed!")
-            print(f"Wealth remaining: {self.wealth}")
+    def build(self):
+
+        print("\nChoose a building:")
+        print("1. House (Cost: 20)")
+        print("2. Farm (Cost: 30)")
+        print("3. Barracks (Cost: 50)")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            if self.wealth >= 20:
+                self.wealth -= 20
+                self.population += 10
+                self.buildings.append("House")
+
+                print("A House was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "2":
+
+            if self.wealth >= 30:
+                self.wealth -= 30
+                self.food += 50
+                self.buildings.append("Farm")
+
+                print("A Farm was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "3":
+
+            if self.wealth >= 50:
+                self.wealth -= 50
+                self.military += 25
+                self.buildings.append("Barracks")
+
+                print("A Barracks was built!")
+            else:
+                print("Not enough wealth!")
+
         else:
-            print("Not enough wealth!")
+            print("Invalid choice.")
 
 
 
-        # types_of_buildings = ["House", "Building", "Barracks"]
-        # for i, building in enumerate(types_of_buildings, 1):
-        #     print(f"{i}. {building}")
-        # choice = input("Choose a building to construct: ")
-        # if choice == "1":
-        #     print("You have constructed a House.")
-        # elif choice == "2":
-        #     print("You have constructed a Building.")
-        # elif choice == "3":
-        #     print("You have constructed a Barracks.")
-        # else:
-        #     print("Invalid choice.")
+    def farm(self):
 
-    # def farm(self):
+        food_gained = random.randint(20, 60)
 
-    # def train(self):
+        self.food += food_gained
 
-    # def buy(self):
+        print(f"\nYour farmers produced {food_gained} food!")
+
+    def train_army(self):
+
+        if self.population >= 10 and self.food >= 20:
+
+            self.population -= 10
+            self.military += 15
+            self.food -= 20
+
+            print("\nYou trained 15 new soldiers!")
+
+        else:
+            print("\nNot enough population or food!")
+
+    def buy(self):
+
+        print("\nChoose an item to buy:")
+        print("1. Food Supply (Cost: 25)")
+        print("2. Weapons (Cost: 40)")
+        print("3. Trade Caravan (Cost: 50)")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            if self.wealth >= 25:
+                self.wealth -= 25
+                self.food += 50
+
+                print("You bought food supplies!")
+
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "2":
+
+            if self.wealth >= 40:
+                self.wealth -= 40
+                self.military += 20
+
+                print("You bought weapons!")
+
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "3":
+
+            if self.wealth >= 50:
+                self.wealth -= 50
+                self.trade += 25
+
+                print("You bought a trade caravan!")
+
+            else:
+                print("Not enough wealth!")
+
+        else:
+            print("Invalid choice.")
+
 
     def make_political_decision(self):
-        decision = random.choice(decisions)
-        decision(self)
 
-    # def trade(self):
+        print("\nA group of citizens demands more rights.")
+        print("1. Give citizens more freedom")
+        print("2. Keep strict laws")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            print("\nThe people celebrate your kindness!")
+
+            self.population += 20
+            self.wealth += 10
+            self.military -= 10
+
+        elif choice == "2":
+
+            print("\nOrder is maintained through force.")
+
+            self.military += 20
+            self.population -= 10
+
+        else:
+            print("Invalid decision.")
+
+
+
+    def trade_action(self):
+
+        wealth_gained = random.randint(20, 70)
+
+        self.wealth += wealth_gained
+
+        print(f"\nYour traders earned {wealth_gained} wealth!")
     
     # def natural_resources(self):
             
 
     def show_status(self):
-        print("\n--- Kingdom STATUS ---")
+
+        print("\n========== KINGDOM STATUS ==========")
+
         print(f"Name: {self.name}")
         print(f"Population: {self.population}")
         print(f"Food: {self.food}")
@@ -127,9 +237,23 @@ class Kingdom:
         print(f"Wealth: {self.wealth}")
         print(f"Trade: {self.trade}")
         print(f"Natural Resources: {self.natural_resources}")
+        print(f"Buildings: {self.buildings}")
+
+        print("====================================")
+
+kingdom = Kingdom(
+    name,
+    population,
+    food,
+    military,
+    wealth,
+    trade,
+    natural_resources
+)
 
 while True:
-    print("\nWhat would you like to do? Your Empire relies on you!: ")
+
+    print("\nWhat would you like to do?")
     print("1. Build")
     print("2. Farm")
     print("3. Train Army")
@@ -137,33 +261,36 @@ while True:
     print("5. Make Political Decision")
     print("6. Trade")
     print("7. Show Stats")
-    print("8. Quit: Destroy your empire")
+    print("8. Quit")
 
     choice = input("> ")
 
     if choice == "1":
-        Kingdom.build()
+        kingdom.build()
 
     elif choice == "2":
-        Kingdom.farm()
+        kingdom.farm()
 
     elif choice == "3":
-        Kingdom.train_army()
+        kingdom.train_army()
 
     elif choice == "4":
-        Kingdom.buy()
+        kingdom.buy()
 
     elif choice == "5":
-        Kingdom.make_political_decision()
+        kingdom.make_political_decision()
 
     elif choice == "6":
-        Kingdom.trade()
+        kingdom.trade_action()
 
     elif choice == "7":
-        Kingdom.show_status()
+        kingdom.show_status()
 
     elif choice == "8":
-        print("You have failed ur empire. Bye u worthless rat.....")
+
+        print("\nYour empire has fallen...")
+        print("Game Over.")
+
         break
 
     else:
