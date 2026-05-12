@@ -11,13 +11,26 @@ print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people
 name = input("What's your empire's name? ")
 type = input("Where is your empire located?\n"
 "1. Forest Civilization\n"
-"A peaceful woodland kingdom focused on food production and population growth. Forest civilizations gather berries, hunt wildlife, and build with abundant timber. Their people thrive in nature, making them excellent farmers and traders, but their military is usually weaker because dense forests make large armies harder to train and move.\n"
+"A peaceful woodland kingdom focused on food production and population growth. \n"
+"Forest civilizations gather berries, hunt wildlife, and build with abundant timber.\n"
+"Their people thrive in nature, making them excellent farmers and traders. \n"
+"Military is usually weaker because dense forests make large armies harder to train and move.\n"
+
 "2. Desert Civilization\n"
-"A harsh survival-based empire built around scarce resources and strong discipline. Desert kingdoms have smaller populations due to the environment, but their soldiers are highly trained and resilient. Trade becomes extremely important because caravans connect distant cities across the sands. Food is limited, but wealth can grow quickly through commerce.\n"
+"A harsh survival-based empire built around scarce resources and strong discipline.\n"
+"Desert kingdoms have smaller populations due to the environment, but their soldiers are highly trained and resilient. \n"
+"Trade becomes extremely important because caravans connect distant cities across the sands. \n"
+"Food is limited, but wealth can grow quickly through commerce.\n"
+
 "3. Mountain Civilization\n"
-"A defensive and war-focused civilization hidden within rocky mountains. Mountain kingdoms produce powerful warriors and strong fortresses because natural terrain protects them from enemies. Mining provides large amounts of wealth and metal for weapons, but farming is difficult, so food supplies are often low and population growth is slow.\n"
+"A defensive and war-focused civilization hidden within rocky mountains. \n"
+"Mountain kingdoms produce powerful warriors and strong fortresses because natural terrain protects them from enemies. \n"
+"Mining provides large amounts of wealth and metal for weapons, but farming is difficult, so food supplies are often low and population growth is slow.\n"
+
 "4. Island Civilization\n"
-"A naval empire surrounded by oceans and dependent on fishing and sea trade. Island civilizations excel at commerce, exploration, and diplomacy with distant lands. Their food supply is stable because of fishing, and wealth grows through shipping routes, but they usually have smaller land armies and rely heavily on naval defense. ")
+"A naval empire surrounded by oceans and dependent on fishing and sea trade.\n"
+"Island civilizations excel at commerce, exploration, and diplomacy with distant lands. \n"
+"Their food supply is stable because of fishing, and wealth grows through shipping routes, but they usually have smaller land armies and rely heavily on naval defense. ")
 
 if type == "1":
     print("You have chosen Forest Civilization.")
