@@ -32,6 +32,7 @@ type = input("Where is your empire located?\n"
 "Island civilizations excel at commerce, exploration, and diplomacy with distant lands. \n"
 "Their food supply is stable because of fishing, and wealth grows through shipping routes, but they usually have smaller land armies and rely heavily on naval defense. ")
 
+
 if type == "1":
     print("You have chosen Forest Civilization.")
     population = 150
@@ -40,6 +41,7 @@ if type == "1":
     wealth = 100
     trade = 80
     natural_resources = 100
+
 
 elif type == "2":
     print("You have chosen Desert Civilization.")
@@ -84,6 +86,7 @@ class Kingdom:
         self.trade = trade
         self.natural_resources = natural_resources
         self.buildings = []
+        self.daynumber = 1
 
 
     def build(self):
@@ -210,7 +213,7 @@ class Kingdom:
 
         if choice == "1":
 
-            print("\nThe people celebrate your kindness!")
+            print("\nThe people celebrate your kindness! Population increased by 20 as more people come to your empire and wealthy by 10. however 10 military are killed bc of free rights")
 
             self.population += 20
             self.wealth += 10
@@ -218,7 +221,7 @@ class Kingdom:
 
         elif choice == "2":
 
-            print("\nOrder is maintained through force.")
+            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
 
             self.military += 20
             self.population -= 10
@@ -236,7 +239,19 @@ class Kingdom:
 
         print(f"\nYour traders earned {wealth_gained} wealth!")
     
-    # def natural_resources(self):
+    def gather_resources(self):
+
+        resources_found = random.randint(10, 40)
+
+        self.natural_resources += resources_found
+
+        print(f"\nYour workers gathered {resources_found} natural resources!")
+
+
+
+    def day(self):
+        self.daynumber += 1
+        print(f"\nA new day begins... Day {self.daynumber}")
             
 
     def show_status(self):
@@ -244,6 +259,7 @@ class Kingdom:
         print("\n========== KINGDOM STATUS ==========")
 
         print(f"Name: {self.name}")
+        print(f"day: {self.daynumber}")
         print(f"Population: {self.population}")
         print(f"Food: {self.food}")
         print(f"Military: {self.military}")
@@ -280,26 +296,36 @@ while True:
 
     if choice == "1":
         kingdom.build()
+        kingdom.day()
 
     elif choice == "2":
         kingdom.farm()
+        kingdom.day()
 
     elif choice == "3":
         kingdom.train_army()
+        kingdom.day()
 
     elif choice == "4":
         kingdom.buy()
+        kingdom.day()
 
     elif choice == "5":
         kingdom.make_political_decision()
+        kingdom.day()
 
     elif choice == "6":
         kingdom.trade_action()
+        kingdom.day()
 
     elif choice == "7":
-        kingdom.show_status()
+        kingdom.gather_resources()
+        kingdom.day()
 
     elif choice == "8":
+        kingdom.show_status()
+
+    elif choice == "9":
 
         print("\nYour empire has fallen...")
         print("Game Over.")
