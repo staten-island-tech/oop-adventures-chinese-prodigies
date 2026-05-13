@@ -42,4 +42,15 @@ class Barracks(Building):
             print("Not Enough Space")
 
     def train_soldiers(self, amount):
-    
+        if self.kingdom.roles["Civilians"] < amount:
+            print("Not enough Civilians to train")
+            return
+        if self.soldiers_training + amount > self.capacity:
+            print("Not enough space in barracks!")
+            return
+        
+        self.kingdom.roles["Civilians"] -= amount
+        self.kingdom.roles["Soldiers"] -= amount
+        self.soldiers_training += amount
+        print(f"Trained {amount} civilians into soldiers!")
+        print(f"Barracks training: {self.soldiers_training}/{self.capacity}")
