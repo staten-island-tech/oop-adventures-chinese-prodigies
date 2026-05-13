@@ -26,6 +26,12 @@ class Housing(Building):
         else:
             print("Not Enough Space")
 
+class Farm(Building):
+    def __init(self, health):
+        super().__init__("House", health)
+
+        
+
 class Barracks(Building):
     def __init__(self, health, capacity):
         super().__init__("Barracks", health)
