@@ -92,7 +92,7 @@ class Kingdom:
     def build(self):
 
         print("\nChoose a building:")
-        print("1. House (Cost: 20)")
+        print("1. House (Cost: 208)")
         print("2. Farm (Cost: 30)")
         print("3. Barracks (Cost: 50)")
 
@@ -105,6 +105,9 @@ class Kingdom:
                 self.population += 10
                 self.buildings.append("House")
 
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
                 print("A House was built!")
             else:
                 print("Not enough wealth!")
@@ -115,6 +118,8 @@ class Kingdom:
                 self.wealth -= 30
                 self.food += 50
                 self.buildings.append("Farm")
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
 
                 print("A Farm was built!")
             else:
@@ -126,6 +131,8 @@ class Kingdom:
                 self.wealth -= 50
                 self.military += 25
                 self.buildings.append("Barracks")
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
 
                 print("A Barracks was built!")
             else:
@@ -141,6 +148,9 @@ class Kingdom:
         food_gained = random.randint(20, 60)
 
         self.food += food_gained
+        
+        print("Farming...")
+        time.sleep(2)  # Wait 2 seconds
 
         print(f"\nYour farmers produced {food_gained} food!")
 
@@ -151,6 +161,9 @@ class Kingdom:
             self.population -= 10
             self.military += 15
             self.food -= 20
+
+            print("Training...")
+            time.sleep(2)  # Wait 2 seconds
 
             print("\nYou trained 15 new soldiers!")
 
@@ -232,10 +245,39 @@ class Kingdom:
 
 
     def trade_action(self):
+        country = ["China", "England", "Ottoman", "Safavid", "Mughal", "Spain", "Mali" , "Mongols"]
+        test_country = random.choice(country)
+
+        print(f"{test_country} would like to trade with you for materials and spices")
+        print("1. Give citizens more freedom")
+        print("2. Keep strict laws")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            print("\nThe people celebrate your kindness! Population increased by 20 as more people come to your empire and wealthy by 10. however 10 military are killed bc of free rights")
+
+            self.population += 20
+            self.wealth += 10
+            self.military -= 10
+
+        elif choice == "2":
+
+            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
+
+            self.military += 20
+            self.population -= 10
+
+        else:
+            print("Invalid decision.")
 
         wealth_gained = random.randint(20, 70)
 
         self.wealth += wealth_gained
+        
+        print("Trading...")
+        time.sleep(2)  # Wait 2 seconds
 
         print(f"\nYour traders earned {wealth_gained} wealth!")
     
@@ -257,6 +299,9 @@ class Kingdom:
     def day(self):
         self.daynumber += 1
         print(f"\nA new day begins... Day {self.daynumber}")
+        consumed = self.population * random.randint(1, 5)
+        self.food -= consumed
+        print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
             
 
     def show_status(self):
@@ -266,10 +311,10 @@ class Kingdom:
         print(f"Name: {self.name}")
         print(f"day: {self.daynumber}")
         print(f"Population: {self.population}")
-        print(f"Food: {self.food}")
-        print(f"Military: {self.military}")
-        print(f"Wealth: {self.wealth}")
-        print(f"Trade: {self.trade}")
+        print(f"Food: {self.food} rice bowls ")
+        print(f"Military: {self.military} soldiers")
+        print(f"Wealth: {self.wealth} silver coins")
+        print(f"Trade Alliances: {self.trade}")
         print(f"Natural Resources: {self.natural_resources}")
         print(f"Buildings: {self.buildings}")
 
