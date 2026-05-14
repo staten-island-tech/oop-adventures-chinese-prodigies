@@ -1,4 +1,4 @@
-# import buildings
+from buildings import Building, Barracks
 import decision
 # import farm
 # import trade
@@ -303,7 +303,29 @@ while True:
         kingdom.day()
 
     elif choice == "3":
-        kingdom.train_army()
+        def train_army(self):
+            or building in self.buildings:
+
+        if isinstance(building, Barracks):
+
+            print("1. Send civilians to barracks")
+            print("2. Train soldiers")
+
+            choice = input("> ")
+
+            if choice == "1":
+
+                amount = int(input("How many civilians? "))
+                building.add_people(self, amount)
+
+            elif choice == "2":
+
+                amount = int(input("How many soldiers to train? "))
+                building.train_soldiers(self, amount)
+
+            return
+
+    print("You need a Barracks first!")
         kingdom.day()
 
     elif choice == "4":
