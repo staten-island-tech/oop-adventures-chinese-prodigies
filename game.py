@@ -145,17 +145,26 @@ class Kingdom:
         print(f"\nYour farmers produced {food_gained} food!")
 
     def train_army(self):
+            or building in self.buildings:
 
-        if self.population >= 10 and self.food >= 20:
+        if isinstance(building, Barracks):
 
-            self.population -= 10
-            self.military += 15
-            self.food -= 20
+            print("1. Send civilians to barracks")
+            print("2. Train soldiers")
 
-            print("\nYou trained 15 new soldiers!")
+            choice = input("> ")
 
-        else:
-            print("\nNot enough population or food!")
+            if choice == "1":
+
+                amount = int(input("How many civilians? "))
+                building.add_people(self, amount)
+
+            elif choice == "2":
+
+                amount = int(input("How many soldiers to train? "))
+                building.train_soldiers(self, amount)
+
+            return
 
     def buy(self):
 
@@ -303,29 +312,7 @@ while True:
         kingdom.day()
 
     elif choice == "3":
-        def train_army(self):
-            or building in self.buildings:
-
-        if isinstance(building, Barracks):
-
-            print("1. Send civilians to barracks")
-            print("2. Train soldiers")
-
-            choice = input("> ")
-
-            if choice == "1":
-
-                amount = int(input("How many civilians? "))
-                building.add_people(self, amount)
-
-            elif choice == "2":
-
-                amount = int(input("How many soldiers to train? "))
-                building.train_soldiers(self, amount)
-
-            return
-
-    print("You need a Barracks first!")
+        kingdom.train_army()
         kingdom.day()
 
     elif choice == "4":
@@ -356,3 +343,6 @@ while True:
 
     else:
         print("Invalid choice.")
+    
+
+    
