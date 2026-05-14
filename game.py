@@ -11,13 +11,27 @@ print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people
 name = input("What's your empire's name? ")
 type = input("Where is your empire located?\n"
 "1. Forest Civilization\n"
-"A peaceful woodland kingdom focused on food production and population growth. Forest civilizations gather berries, hunt wildlife, and build with abundant timber. Their people thrive in nature, making them excellent farmers and traders, but their military is usually weaker because dense forests make large armies harder to train and move.\n"
+"A peaceful woodland kingdom focused on food production and population growth. \n"
+"Forest civilizations gather berries, hunt wildlife, and build with abundant timber.\n"
+"Their people thrive in nature, making them excellent farmers and traders. \n"
+"Military is usually weaker because dense forests make large armies harder to train and move.\n"
+
 "2. Desert Civilization\n"
-"A harsh survival-based empire built around scarce resources and strong discipline. Desert kingdoms have smaller populations due to the environment, but their soldiers are highly trained and resilient. Trade becomes extremely important because caravans connect distant cities across the sands. Food is limited, but wealth can grow quickly through commerce.\n"
+"A harsh survival-based empire built around scarce resources and strong discipline.\n"
+"Desert kingdoms have smaller populations due to the environment, but their soldiers are highly trained and resilient. \n"
+"Trade becomes extremely important because caravans connect distant cities across the sands. \n"
+"Food is limited, but wealth can grow quickly through commerce.\n"
+
 "3. Mountain Civilization\n"
-"A defensive and war-focused civilization hidden within rocky mountains. Mountain kingdoms produce powerful warriors and strong fortresses because natural terrain protects them from enemies. Mining provides large amounts of wealth and metal for weapons, but farming is difficult, so food supplies are often low and population growth is slow.\n"
+"A defensive and war-focused civilization hidden within rocky mountains. \n"
+"Mountain kingdoms produce powerful warriors and strong fortresses because natural terrain protects them from enemies. \n"
+"Mining provides large amounts of wealth and metal for weapons, but farming is difficult, so food supplies are often low and population growth is slow.\n"
+
 "4. Island Civilization\n"
-"A naval empire surrounded by oceans and dependent on fishing and sea trade. Island civilizations excel at commerce, exploration, and diplomacy with distant lands. Their food supply is stable because of fishing, and wealth grows through shipping routes, but they usually have smaller land armies and rely heavily on naval defense. ")
+"A naval empire surrounded by oceans and dependent on fishing and sea trade.\n"
+"Island civilizations excel at commerce, exploration, and diplomacy with distant lands. \n"
+"Their food supply is stable because of fishing, and wealth grows through shipping routes, but they usually have smaller land armies and rely heavily on naval defense. ")
+
 
 if type == "1":
     print("You have chosen Forest Civilization.")
@@ -27,6 +41,7 @@ if type == "1":
     wealth = 100
     trade = 80
     natural_resources = 100
+
 
 elif type == "2":
     print("You have chosen Desert Civilization.")
@@ -71,6 +86,7 @@ class Kingdom:
         self.trade = trade
         self.natural_resources = natural_resources
         self.buildings = []
+        self.daynumber = 1
 
 
     def build(self):
@@ -197,7 +213,7 @@ class Kingdom:
 
         if choice == "1":
 
-            print("\nThe people celebrate your kindness!")
+            print("\nThe people celebrate your kindness! Population increased by 20 as more people come to your empire and wealthy by 10. however 10 military are killed bc of free rights")
 
             self.population += 20
             self.wealth += 10
@@ -205,7 +221,7 @@ class Kingdom:
 
         elif choice == "2":
 
-            print("\nOrder is maintained through force.")
+            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
 
             self.military += 20
             self.population -= 10
@@ -223,7 +239,19 @@ class Kingdom:
 
         print(f"\nYour traders earned {wealth_gained} wealth!")
     
-    # def natural_resources(self):
+    def gather_resources(self):
+
+        resources_found = random.randint(10, 40)
+
+        self.natural_resources += resources_found
+
+        print(f"\nYour workers gathered {resources_found} natural resources!")
+
+
+
+    def day(self):
+        self.daynumber += 1
+        print(f"\nA new day begins... Day {self.daynumber}")
             
 
     def show_status(self):
@@ -231,6 +259,7 @@ class Kingdom:
         print("\n========== KINGDOM STATUS ==========")
 
         print(f"Name: {self.name}")
+        print(f"day: {self.daynumber}")
         print(f"Population: {self.population}")
         print(f"Food: {self.food}")
         print(f"Military: {self.military}")
@@ -267,26 +296,36 @@ while True:
 
     if choice == "1":
         kingdom.build()
+        kingdom.day()
 
     elif choice == "2":
         kingdom.farm()
+        kingdom.day()
 
     elif choice == "3":
         kingdom.train_army()
+        kingdom.day()
 
     elif choice == "4":
         kingdom.buy()
+        kingdom.day()
 
     elif choice == "5":
         kingdom.make_political_decision()
+        kingdom.day()
 
     elif choice == "6":
         kingdom.trade_action()
+        kingdom.day()
 
     elif choice == "7":
-        kingdom.show_status()
+        kingdom.gather_resources()
+        kingdom.day()
 
     elif choice == "8":
+        kingdom.show_status()
+
+    elif choice == "9":
 
         print("\nYour empire has fallen...")
         print("Game Over.")
