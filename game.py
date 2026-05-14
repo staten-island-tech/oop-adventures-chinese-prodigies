@@ -3,6 +3,7 @@
 # import trade
 # import events
 # import buy
+import time
 import random
 
 print("Welcome to your KINGDOM! Congrats On Being a RULER! Please do your people well! Please customize your KINGDOM: ")
@@ -242,9 +243,14 @@ class Kingdom:
 
         resources_found = random.randint(10, 40)
 
-        self.natural_resources += resources_found
+        people = random.randint(1, 10)
 
-        print(f"\nYour workers gathered {resources_found} natural resources!")
+        self.natural_resources += resources_found
+        self.population -= people
+        print("Gathering resouces...")
+        time.sleep(2)  # Wait 2 seconds
+
+        print(f"\nYour workers gathered {resources_found} natural resources!...BUT {people} people died from overworking in the sun")
 
 
 
