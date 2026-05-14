@@ -1,5 +1,4 @@
 # import buildings
-import decision
 # import farm
 # import trade
 # import events
@@ -289,8 +288,9 @@ while True:
     print("4. Buy Item")
     print("5. Make Political Decision")
     print("6. Trade")
-    print("7. Show Stats")
-    print("8. Quit")
+    print("7. Gather Resources")
+    print("8. Show Stats")
+    print("9. Quit")
 
     choice = input("> ")
 
