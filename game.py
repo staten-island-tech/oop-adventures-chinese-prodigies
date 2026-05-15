@@ -1,4 +1,5 @@
-# import buildings
+from buildings import Building, Barracks, Housing, Farm
+# import decision
 # import farm
 # import trade
 # import events
@@ -103,7 +104,7 @@ class Kingdom:
             if self.wealth >= 20:
                 self.wealth -= 20
                 self.population += 10
-                self.buildings.append("House")
+                self.buildings.append(Housing(100,50))
 
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
@@ -117,7 +118,7 @@ class Kingdom:
             if self.wealth >= 30:
                 self.wealth -= 30
                 self.food += 50
-                self.buildings.append("Farm")
+                self.buildings.append(Farm(100,50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -130,7 +131,7 @@ class Kingdom:
             if self.wealth >= 50:
                 self.wealth -= 50
                 self.military += 25
-                self.buildings.append("Barracks")
+                self.buildings.append(Barracks(100,50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -155,12 +156,12 @@ class Kingdom:
         print(f"\nYour farmers produced {food_gained} food!")
 
     def train_army(self):
+        for building in self.buildings:
 
-        if self.population >= 10 and self.food >= 20:
+            if isinstance(building, Barracks):
 
-            self.population -= 10
-            self.military += 15
-            self.food -= 20
+                print("1. Send civilians to barracks")
+                print("2. Train soldiers")
 
             print("Training...")
             time.sleep(2)  # Wait 2 seconds

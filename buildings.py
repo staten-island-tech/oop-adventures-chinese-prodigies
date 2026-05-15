@@ -1,8 +1,7 @@
 class Building:
-    def __init__(self, name, health, population):
+    def __init__(self, name, health):
         self.name = name
         self.health = health
-        self.population = population
 
     def fix(self, kingdom, cost):
         if kingdom.wealth >= cost:
@@ -27,8 +26,8 @@ class Housing(Building):
             print("Not Enough Space")
 
 class Farm(Building):
-    def __init(self, health):
-        super().__init__("House", health)
+    def __init__(self, health):
+        super().__init__("Farm", health)
 
         
 
@@ -39,24 +38,30 @@ class Barracks(Building):
         self.soldiers = 0
         self.people = 0
 
-    def add_people(self, amount):
+    def add_people(self, kingdom, amount):
+        if kingdom.population < amount:
+            print("Not enough Civilians in the kingdom")
+            return
+        
         if self.people + amount <= self.capacity:
             self.people += amount
+            kingdom.population -= amount
             print(f"{amount} civilian/people entered the barrack")
             print(f"{self.people} number of civilians/people are in the barracks now")
         else:
             print("Not Enough Space")
 
-    def train_soldiers(self, amount):
-        if self.kingdom.roles["Civilians"] < amount:
-            print("Not enough Civilians to train")
+    def train_soldiers(self, kingdom, amount):
+        if self.people < amount:
+            print("Not enough Civilians in Baraacks")
             return
-        if self.soldiers_training + amount > self.capacity:
+        if self.soldiers + amount > self.capacity:
             print("Not enough space in barracks!")
             return
         
-        self.kingdom.roles["Civilians"] -= amount
-        self.kingdom.roles["Soldiers"] -= amount
-        self.soldiers_training += amount
+        self.people -= amount
+        self.soldiers += amount
+        kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
-        print(f"Barracks training: {self.soldiers_training}/{self.capacity}")
+        print(f"Barracks training: {self.soldiers}/{self.capacity}")
+
