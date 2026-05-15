@@ -4,6 +4,7 @@ from buildings import Building, Barracks, Housing, Farm
 # import trade
 # import events
 # import buy
+from status import show_status
 import time
 import random
 
@@ -326,21 +327,6 @@ class Kingdom:
         print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
             
 
-    def show_status(self):
-
-        print("\n========== KINGDOM STATUS ==========")
-
-        print(f"Name: {self.name}")
-        print(f"day: {self.daynumber}")
-        print(f"Population: {self.population}")
-        print(f"Food: {self.food} rice bowls ")
-        print(f"Military: {self.military} soldiers")
-        print(f"Wealth: {self.wealth} silver coins")
-        print(f"Trade Alliances: {self.trade}")
-        print(f"Natural Resources: {self.natural_resources}")
-        print(f"Buildings: {self.buildings}")
-
-        print("====================================")
 
 kingdom = Kingdom(
     name,
@@ -396,7 +382,7 @@ while True:
         kingdom.day()
 
     elif choice == "8":
-        kingdom.show_status()
+        show_status(kingdom)
 
     elif choice == "9":
 
