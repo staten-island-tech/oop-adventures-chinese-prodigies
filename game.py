@@ -1,5 +1,4 @@
-from buildings import Building, Barracks
-import decision
+# import buildings
 # import farm
 # import trade
 # import events
@@ -84,7 +83,7 @@ class Kingdom:
         self.food = food
         self.military = military
         self.wealth = wealth
-        self.trade = trade
+        self.trade = []
         self.natural_resources = natural_resources
         self.buildings = []
         self.daynumber = 1
@@ -248,20 +247,41 @@ class Kingdom:
     def trade_action(self):
         country = ["China", "England", "Ottoman", "Safavid", "Mughal", "Spain", "Mali" , "Mongols"]
         test_country = random.choice(country)
+        max_mat = self.natural_resources
+        max_wealth = self.wealth
+        trade_mat = random.randint(1, max_mat)
+        trade_wealth = random.randint(1, max_wealth)
 
         print(f"{test_country} would like to trade with you for materials and spices")
-        print("1. Give citizens more freedom")
-        print("2. Keep strict laws")
+        print(f"1. Trade with {test_country}...You will lose {trade_mat} wood and iron but increase wealth by {trade_wealth}")
+        print("2. no deal")
 
         choice = input("> ")
 
         if choice == "1":
+            if max_mat >= trade_mat:
+                self.natural_resources -= trade_mat 
+                self.wealth+= trade_wealth 
+                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 10-20 wood material. Do you accept to the conditions? Yes or No")
+                choice1_ = input(">")
+                
+                if choice1_ == "Yes":
+                    tradealliance = True
+                    self.trade.append(f"{test_country}")
 
-            print("\nThe people celebrate your kindness! Population increased by 20 as more people come to your empire and wealthy by 10. however 10 military are killed bc of free rights")
 
-            self.population += 20
-            self.wealth += 10
-            self.military -= 10
+                else: 
+
+                    print(f"{test_country} is extremely mad and attempted to colonize you...")
+                    time.sleep()
+                    print("Luckily you survived but your army has died along ")
+
+
+                        
+
+
+            else:
+                print("You dont have enough resources for the trade. ")
 
         elif choice == "2":
 
@@ -340,8 +360,9 @@ while True:
     print("4. Buy Item")
     print("5. Make Political Decision")
     print("6. Trade")
-    print("7. Show Stats")
-    print("8. Quit")
+    print("7. Gather Resources")
+    print("8. Show Stats")
+    print("9. Quit")
 
     choice = input("> ")
 
@@ -354,29 +375,7 @@ while True:
         kingdom.day()
 
     elif choice == "3":
-        def train_army(self):
-            or building in self.buildings:
-
-        if isinstance(building, Barracks):
-
-            print("1. Send civilians to barracks")
-            print("2. Train soldiers")
-
-            choice = input("> ")
-
-            if choice == "1":
-
-                amount = int(input("How many civilians? "))
-                building.add_people(self, amount)
-
-            elif choice == "2":
-
-                amount = int(input("How many soldiers to train? "))
-                building.train_soldiers(self, amount)
-
-            return
-
-    print("You need a Barracks first!")
+        kingdom.train_army()
         kingdom.day()
 
     elif choice == "4":
