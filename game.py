@@ -156,20 +156,15 @@ class Kingdom:
         print(f"\nYour farmers produced {food_gained} food!")
 
     def train_army(self):
+
         for building in self.buildings:
 
             if isinstance(building, Barracks):
 
-                print("1. Send civilians to barracks")
-                print("2. Train soldiers")
+                building.menu(self)
+                return
 
-            print("Training...")
-            time.sleep(2)  # Wait 2 seconds
-
-            print("\nYou trained 15 new soldiers!")
-
-        else:
-            print("\nNot enough population or food!")
+    print("You do not have a barracks.")
 
     def buy(self):
 
