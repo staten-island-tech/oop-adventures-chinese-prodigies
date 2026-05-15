@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 # import buildings
+=======
+from buildings import Building, Barracks, Housing, Farm
+# import decision
+>>>>>>> Stashed changes
 # import farm
 # import trade
 # import events
@@ -103,7 +108,7 @@ class Kingdom:
             if self.wealth >= 20:
                 self.wealth -= 20
                 self.population += 10
-                self.buildings.append("House")
+                self.buildings.append(Housing(100,50))
 
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
@@ -117,9 +122,13 @@ class Kingdom:
             if self.wealth >= 30:
                 self.wealth -= 30
                 self.food += 50
+<<<<<<< Updated upstream
                 self.buildings.append("Farm")
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
+=======
+                self.buildings.append(Farm(100,50))
+>>>>>>> Stashed changes
 
                 print("A Farm was built!")
             else:
@@ -130,9 +139,13 @@ class Kingdom:
             if self.wealth >= 50:
                 self.wealth -= 50
                 self.military += 25
+<<<<<<< Updated upstream
                 self.buildings.append("Barracks")
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
+=======
+                self.buildings.append(Barracks(100,50))
+>>>>>>> Stashed changes
 
                 print("A Barracks was built!")
             else:
@@ -155,12 +168,21 @@ class Kingdom:
         print(f"\nYour farmers produced {food_gained} food!")
 
     def train_army(self):
+<<<<<<< Updated upstream
 
         if self.population >= 10 and self.food >= 20:
 
             self.population -= 10
             self.military += 15
             self.food -= 20
+=======
+        for building in self.buildings:
+
+            if isinstance(building, Barracks):
+
+                print("1. Send civilians to barracks")
+                print("2. Train soldiers")
+>>>>>>> Stashed changes
 
             print("Training...")
             time.sleep(2)  # Wait 2 seconds
