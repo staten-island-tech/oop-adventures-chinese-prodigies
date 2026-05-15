@@ -65,3 +65,25 @@ class Barracks(Building):
         print(f"Trained {amount} civilians into soldiers!")
         print(f"Barracks training: {self.soldiers}/{self.capacity}")
 
+
+    def menu(self, kingdom):
+
+        print("\n=== Barracks ===")
+        print("1. Send civilians to barracks")
+        print("2. Train soldiers")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            amount = int(input("How many civilians? "))
+            self.add_people(kingdom, amount)
+
+        elif choice == "2":
+
+            amount = int(input("How many soldiers to train? "))
+            self.train_soldiers(kingdom, amount)
+
+        else:
+            print("Invalid choice")
+
