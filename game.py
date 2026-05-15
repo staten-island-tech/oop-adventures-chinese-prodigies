@@ -273,7 +273,7 @@ class Kingdom:
                 else: 
 
                     print(f"{test_country} is extremely mad and attempted to colonize you...")
-                    time.sleep(2)
+                    time.sleep()
                     print("Luckily you survived but your army has died along ")
 
 
