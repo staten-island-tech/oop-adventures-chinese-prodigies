@@ -152,11 +152,12 @@ class Kingdom:
         for building in self.buildings:
 
             if isinstance(building, Barracks):
-
                 building.menu(self)
                 return
+            
+        print("You do not have a barracks.")
 
-    print("You do not have a barracks.")
+                
 
     def buy(self):
 
