@@ -1,0 +1,60 @@
+import random
+import time
+def trade_action(self):
+        country = ["China", "England", "Ottoman", "Safavid", "Mughal", "Spain", "Mali" , "Mongols"]
+        test_country = random.choice(country)
+        max_mat = self.natural_resources
+        max_wealth = self.wealth
+        trade_mat = random.randint(1, max_mat)
+        trade_wealth = random.randint(1, max_wealth)
+
+        print(f"{test_country} would like to trade with you for materials and spices")
+        print(f"1. Trade with {test_country}...You will lose {trade_mat} wood and iron but increase wealth by {trade_wealth}")
+        print("2. no deal")
+
+        choice = input("> ")
+
+        if choice == "1":
+            if max_mat >= trade_mat:
+                self.natural_resources -= trade_mat 
+                self.wealth+= trade_wealth 
+                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 10-20 wood material. Do you accept to the conditions? Yes or No")
+                choice1_ = input(">")
+                
+                if choice1_ == "Yes":
+                    tradealliance = True
+                    self.trade.append(f"{test_country}")
+
+
+                else: 
+
+                    print(f"{test_country} is extremely mad and attempted to colonize you...")
+                    time.sleep()
+                    print("Luckily you survived but your army has died along ")
+
+
+                        
+
+
+            else:
+                print("You dont have enough resources for the trade. ")
+
+        elif choice == "2":
+
+            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
+
+            self.military += 20
+            self.population -= 10
+
+        else:
+            print("Invalid decision.")
+
+        wealth_gained = random.randint(20, 70)
+
+        self.wealth += wealth_gained
+        
+        print("Trading...")
+        time.sleep(2)  # Wait 2 seconds
+
+        print(f"\nYour traders earned {wealth_gained} wealth!")
+    
