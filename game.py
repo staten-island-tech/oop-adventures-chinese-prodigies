@@ -1,9 +1,10 @@
 from buildings import Building, Barracks, Housing, Farm
 # import decision
-# import farm
+from farm import farm
 # import trade
 # import events
 # import buy
+from day import day
 from status import show_status
 import time
 import random
@@ -78,7 +79,7 @@ else:
 class Kingdom:
 
     def __init__(self, name, population, food, military,
-                 wealth, trade, natural_resources):
+                 wealth, natural_resources):
 
         self.name = name
         self.population = population
@@ -304,13 +305,6 @@ class Kingdom:
 
 
 
-    def day(self):
-        self.daynumber += 1
-        print(f"\nA new day begins... Day {self.daynumber}")
-        consumed = self.population * random.randint(1, 5)
-        self.food -= consumed
-        print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
-            
 
 
 kingdom = Kingdom(
@@ -319,7 +313,6 @@ kingdom = Kingdom(
     food,
     military,
     wealth,
-    trade,
     natural_resources
 )
 
@@ -340,31 +333,31 @@ while True:
 
     if choice == "1":
         kingdom.build()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "2":
-        kingdom.farm()
-        kingdom.day()
+        farm(kingdom)
+        day(kingdom)
 
     elif choice == "3":
         kingdom.train_army()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "4":
         kingdom.buy()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "5":
         kingdom.make_political_decision()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "6":
         kingdom.trade_action()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "7":
         kingdom.gather_resources()
-        kingdom.day()
+        day(kingdom)
 
     elif choice == "8":
         show_status(kingdom)
