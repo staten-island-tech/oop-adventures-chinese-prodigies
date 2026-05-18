@@ -77,7 +77,7 @@ else:
 class Kingdom:
 
     def __init__(self, name, population, food, military,
-                 wealth, trade, natural_resources):
+                 wealth, natural_resources):
 
         self.name = name
         self.population = population
@@ -160,11 +160,12 @@ class Kingdom:
         for building in self.buildings:
 
             if isinstance(building, Barracks):
-
                 building.menu(self)
                 return
+            
+        print("You do not have a barracks.")
 
-    print("You do not have a barracks.")
+                
 
     def buy(self):
 
@@ -343,7 +344,6 @@ kingdom = Kingdom(
     food,
     military,
     wealth,
-    trade,
     natural_resources
 )
 
