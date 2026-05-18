@@ -1,3 +1,6 @@
+import time
+import random
+
 class Building:
     def __init__(self, name, health):
         self.name = name
@@ -64,4 +67,95 @@ class Barracks(Building):
         kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
         print(f"Barracks training: {self.soldiers}/{self.capacity}")
+
+
+    def menu(self, kingdom):
+
+        print("\n=== Barracks ===")
+        print("1. Send civilians to barracks")
+        print("2. Train soldiers")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            amount = int(input("How many civilians? "))
+            self.add_people(kingdom, amount)
+
+        elif choice == "2":
+
+            amount = int(input("How many soldiers to train? "))
+            self.train_soldiers(kingdom, amount)
+
+        else:
+            print("Invalid choice")
+
+
+
+    def build(self):
+
+        print("\nChoose a building:")
+        print("1. House (Cost: 208)")
+        print("2. Farm (Cost: 30)")
+        print("3. Barracks (Cost: 50)")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            if self.wealth >= 20:
+                self.wealth -= 20
+                self.population += 10
+                self.buildings.append(Housing(100,50))
+
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A House was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "2":
+
+            if self.wealth >= 30:
+                self.wealth -= 30
+                self.food += 50
+                self.buildings.append(Farm(100,50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Farm was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "3":
+
+            if self.wealth >= 50:
+                self.wealth -= 50
+                self.military += 25
+                self.buildings.append(Barracks(100,50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Barracks was built!")
+            else:
+                print("Not enough wealth!")
+
+        else:
+            print("Invalid choice.")
+
+
+
+
+    def train_army(self):
+
+        for building in self.buildings:
+
+            if isinstance(building, Barracks):
+                building.menu(self)
+                return
+            
+        print("You do not have a barracks.")
+
+                
 
