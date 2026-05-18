@@ -4,6 +4,7 @@ from farm import farm
 from trade import trade_action
 # import events
 # import buy
+from gather import gather_resources
 from day import day
 from status import show_status
 import time
@@ -234,20 +235,6 @@ class Kingdom:
 
 
 
-    def gather_resources(self):
-
-        resources_found = random.randint(10, 40)
-
-        people = random.randint(1, 10)
-
-        self.natural_resources += resources_found
-        self.population -= people
-        print("Gathering resouces...")
-        time.sleep(2)  # Wait 2 seconds
-
-        print(f"\nYour workers gathered {resources_found} natural resources!...BUT {people} people died from overworking in the sun")
-
-
 
 
 
@@ -300,7 +287,7 @@ while True:
         day(kingdom)
 
     elif choice == "7":
-        kingdom.gather_resources()
+        gather_resources(kingdom)
         day(kingdom)
 
     elif choice == "8":
