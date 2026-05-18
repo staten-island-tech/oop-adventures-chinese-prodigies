@@ -226,8 +226,7 @@ class Kingdom:
             print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
 
             self.military += 20
-            self.population -= 10
-
+            self.population = max(0, self.population - 10)
         else:
             print("Invalid decision.")
 
@@ -262,7 +261,7 @@ class Kingdom:
                 else: 
 
                     print(f"{test_country} is extremely mad and attempted to colonize you...")
-                    time.sleep()
+                    time.sleep(2)
                     print("Luckily you survived but your army has died along ")
 
 
@@ -277,8 +276,7 @@ class Kingdom:
             print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
 
             self.military += 20
-            self.population -= 10
-
+            self.population = max(0, self.population - 10)
         else:
             print("Invalid decision.")
 
@@ -298,7 +296,7 @@ class Kingdom:
         people = random.randint(1, 10)
 
         self.natural_resources += resources_found
-        self.population -= people
+        self.population = max(0, self.population - people)
         print("Gathering resouces...")
         time.sleep(2)  # Wait 2 seconds
 
@@ -334,34 +332,34 @@ while True:
 
     if choice == "1":
         kingdom.build()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "2":
-        farm(kingdom)
-        day(kingdom)
+        kingdom.farm()
+        kingdom.day()
 
     elif choice == "3":
         kingdom.train_army()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "4":
         kingdom.buy()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "5":
         kingdom.make_political_decision()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "6":
         kingdom.trade_action()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "7":
         kingdom.gather_resources()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "8":
-        show_status(kingdom)
+        kingdom.show_status()
 
     elif choice == "9":
 
