@@ -1,12 +1,9 @@
 from buildings import Building, Barracks, Housing, Farm
-from gov import make_political_decision
-from farm import farm
-from trade import trade_action
+# import decision
+# import farm
+# import trade
 # import events
-from buy import buy
-from gather import gather_resources
-from day import day
-from status import show_status
+# import buy
 import time
 import random
 
@@ -120,35 +117,35 @@ while True:
     choice = input("> ")
 
     if choice == "1":
-        build(kingdom)
+        kingdom.build()
         day(kingdom)
 
     elif choice == "2":
-        farm(kingdom)
-        day(kingdom)
+        kingdom.farm()
+        kingdom.day()
 
     elif choice == "3":
         kingdom.train_army()
-        day(kingdom)
+        kingdom.day()
 
     elif choice == "4":
-        buy(kingdom)
-        day(kingdom)
+        kingdom.buy()
+        kingdom.day()
 
     elif choice == "5":
-        make_political_decision(kingdom)
-        day(kingdom)
+        kingdom.make_political_decision()
+        kingdom.day()
 
     elif choice == "6":
-        trade_action(kingdom)
-        day(kingdom)
+        kingdom.trade_action()
+        kingdom.day()
 
     elif choice == "7":
-        gather_resources(kingdom)
-        day(kingdom)
+        kingdom.gather_resources()
+        kingdom.day()
 
     elif choice == "8":
-        show_status(kingdom)
+        kingdom.show_status()
 
     elif choice == "9":
 
