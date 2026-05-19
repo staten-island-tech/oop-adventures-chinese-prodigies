@@ -66,7 +66,9 @@ class Barracks(Building):
         self.soldiers += amount
         kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
-        print(f"Barracks training: {self.soldiers}/{self.capacity}")
+        print(f"Soldiers in Barracks: {self.soldiers}/{self.capacity}")
+        print(f"Civilians in Barracks: {self.people}/{self.capacity}")
+        print(f"Total People in Barracks: {self.people + self.soldiers}/{self.capacity}")
 
 
     def menu(self, kingdom):

@@ -90,6 +90,7 @@ class Kingdom:
         self.daynumber = 1
 
 
+<<<<<<< Updated upstream
                 
 
     def buy(self):
@@ -186,6 +187,8 @@ class Kingdom:
                 self.wealth+= trade_wealth 
                 print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 10-20 wood material. Do you accept to the conditions? Yes or No")
                 choice1_ = input(">")
+=======
+>>>>>>> Stashed changes
                 
                 if choice1_ == "Yes":
                     tradealliance = True
