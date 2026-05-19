@@ -7,6 +7,7 @@ def trade_action(self):
         max_wealth = self.wealth
         trade_mat = random.randint(1, max_mat)
         trade_wealth = random.randint(1, max_wealth)
+        military = self.military
 
         print(f"{test_country} would like to trade with you for materials and spices")
         print(f"1. Trade with {test_country}...You will lose {trade_mat} wood and iron but increase wealth by {trade_wealth}")
@@ -21,7 +22,7 @@ def trade_action(self):
                 print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 10-20 wood material. Do you accept to the conditions? Yes or No")
                 choice1_ = input(">")
                 
-                if choice1_ == "Yes":
+                if choice1_ == "Yes" or "yes":
                     tradealliance = True
                     self.trade.append(f"{test_country}")
 
@@ -29,8 +30,11 @@ def trade_action(self):
                 else: 
 
                     print(f"{test_country} is extremely mad and attempted to colonize you...")
-                    time.sleep()
-                    print("Luckily you survived but your army has died along ")
+                    time.sleep(3)
+                    print(f"Luckily you survived but {armydied} army has died along ")
+
+                    armydied = random.randint(1, military)
+                    self.military -= armydied
 
 
                         
@@ -48,13 +52,3 @@ def trade_action(self):
 
         else:
             print("Invalid decision.")
-
-        wealth_gained = random.randint(20, 70)
-
-        self.wealth += wealth_gained
-        
-        print("Trading...")
-        time.sleep(2)  # Wait 2 seconds
-
-        print(f"\nYour traders earned {wealth_gained} wealth!")
-    

@@ -90,75 +90,7 @@ class Kingdom:
         self.trade = []
         self.natural_resources = natural_resources
         self.buildings = []
-        self.daynumber = 1
-
-
-    def build(self):
-
-        print("\nChoose a building:")
-        print("1. House (Cost: 208)")
-        print("2. Farm (Cost: 30)")
-        print("3. Barracks (Cost: 50)")
-
-        choice = input("> ")
-
-        if choice == "1":
-
-            if self.wealth >= 20:
-                self.wealth -= 20
-                self.population += 10
-                self.buildings.append(Housing(100,50))
-
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A House was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "2":
-
-            if self.wealth >= 30:
-                self.wealth -= 30
-                self.food += 50
-                self.buildings.append(Farm(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Farm was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "3":
-
-            if self.wealth >= 50:
-                self.wealth -= 50
-                self.military += 25
-                self.buildings.append(Barracks(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Barracks was built!")
-            else:
-                print("Not enough wealth!")
-
-        else:
-            print("Invalid choice.")
-
-
-
-
-    def train_army(self):
-
-        for building in self.buildings:
-
-            if isinstance(building, Barracks):
-                building.menu(self)
-                return
-            
-        print("You do not have a barracks.")
-
-                
+        self.daynumber = 1 
 
 
 
@@ -188,7 +120,7 @@ while True:
     choice = input("> ")
 
     if choice == "1":
-        kingdom.build()
+        build(kingdom)
         day(kingdom)
 
     elif choice == "2":
