@@ -32,12 +32,24 @@ class Farm(Building):
     def __init__(self, health):
         super().__init__("Farm", health)
 
+class Salt_Mines(Building):
+    def __init__(self, health):
+        super().__init__("Salt Mines", health)
+        self.days = 1
+    
+    def make_resources(self, kingdom):
+        if self.day > kingdom.daynumber:
+            self.day = kingdom.daynumber
+            resources_made = random.randint(20, 40)
+            self.natural_resources += resources_made
+            
+
         
 
 class Barracks(Building):
     def __init__(self, health, capacity):
         super().__init__("Barracks", health)
-        self.capacity = capacity
+        self.capacity = 50
         self.soldiers = 0
         self.people = 0
 
@@ -162,9 +174,10 @@ class Barracks(Building):
     def build(self):
 
         print("\nChoose a building:")
-        print("1. House (Cost: 208)")
-        print("2. Farm (Cost: 30)")
-        print("3. Barracks (Cost: 50)")
+        print("1. House (Cost: 20 coins)")
+        print("2. Farm (Cost: 30 coins)")
+        print("3. Barracks (Cost: 50 coins)")
+        print("4. Salt Mines (Cost: 25 coins)")
 
         choice = input("> ")
 
