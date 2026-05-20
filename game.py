@@ -157,5 +157,13 @@ while True:
 
         break
 
+    def death(self):
+    if self.population <=0:
+        print("\nYour empire has fallen...")
+        print("Game Over.")
+
+        break
+
+
     else:
         print("Invalid choice.")
