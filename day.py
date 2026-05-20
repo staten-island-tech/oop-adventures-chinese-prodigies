@@ -9,8 +9,8 @@ def day(self):
 
     if self.trade == "China"or "England"or  "Ottoman"or "Safavid"or "Mughal"or "Spain" or "Mali" or "Mongols":
               
-        mat_trade = random.randint(10, 20)
-        coin_trade = random.randint(1, 10)
+        mat_trade = random.randint(10, 20)+4
+        coin_trade = random.randint(1, 10)+2
         self.natural_resources -= mat_trade
         self.wealth += coin_trade
 

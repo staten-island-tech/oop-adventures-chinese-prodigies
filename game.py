@@ -1,9 +1,12 @@
-from buildings import Building, Barracks, Housing, Farm
-# import decision
-# import farm
-# import trade
+from buildings import Building, Barracks, Housing, Farm, build, train_army
+from gov import make_political_decision
+from farm import farm
+from trade import trade_action
 # import events
-# import buy
+from buy import buy
+from gather import gather_resources
+from day import day
+from status import show_status
 import time
 import random
 
@@ -113,42 +116,42 @@ while True:
     print("7. Gather Resources")
     print("8. Show Stats")
     print("9. Quit")
-
+    
     choice = input("> ")
 
     if choice == "1":
-        kingdom.build()
+        build(kingdom)
         day(kingdom)
 
     elif choice == "2":
-        kingdom.farm()
-        kingdom.day()
+        farm(kingdom)
+        day(kingdom)
 
     elif choice == "3":
-        kingdom.train_army()
-        kingdom.day()
+        train_army(kingdom)
+        day(kingdom)
 
     elif choice == "4":
-        kingdom.buy()
-        kingdom.day()
+        buy(kingdom)
+        day(kingdom)
 
     elif choice == "5":
-        kingdom.make_political_decision()
-        kingdom.day()
+        make_political_decision(kingdom)
+        day(kingdom)
 
     elif choice == "6":
-        kingdom.trade_action()
-        kingdom.day()
+        trade_action(kingdom)
+        day(kingdom)
 
     elif choice == "7":
-        kingdom.gather_resources()
-        kingdom.day()
+        gather_resources(kingdom)
+        day(kingdom)
 
     elif choice == "8":
-        kingdom.show_status()
+        show_status(kingdom)
 
     elif choice == "9":
-
+        
         print("\nYour empire has fallen...")
         print("Game Over.")
 
