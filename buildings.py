@@ -14,6 +14,57 @@ class Building:
             print(f"{kingdom.name} now has {kingdom.wealth} wealth left.")
         else:
             print("Not enough funds")
+def build(self):
+
+        print("\nChoose a building:")
+        print("1. House (Cost: 208)")
+        print("2. Farm (Cost: 30)")
+        print("3. Barracks (Cost: 50)")
+
+        choice = input("> ")
+
+        if choice == "1":
+
+            if self.wealth >= 20:
+                self.wealth -= 20
+                self.population += 10
+                self.buildings.append(Housing(100,50))
+
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A House was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "2":
+
+            if self.wealth >= 30:
+                self.wealth -= 30
+                self.food += 50
+                self.buildings.append(Farm(100,50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Farm was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "3":
+
+            if self.wealth >= 50:
+                self.wealth -= 50
+                self.military += 25
+                self.buildings.append(Barracks(100,50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Barracks was built!")
+            else:
+                print("Not enough wealth!")
+
+        else:
+            print("Invalid choice.")
 
 class Housing(Building):
     def __init__(self, health, capacity):
@@ -31,6 +82,27 @@ class Housing(Building):
 class Farm(Building):
     def __init__(self, health):
         super().__init__("Farm", health)
+
+    def farm(self):
+
+        food_gained = random.randint(20, 60)
+
+        self.food += food_gained
+        
+        print("Farming...")
+        time.sleep(2)  # Wait 2 seconds
+
+        print(f"\nYour farmers produced {food_gained} food!")
+
+    def farm(self):
+
+        for building in self.buildings:
+
+            if isinstance(building, Farm):
+                building.menu(self)
+                return
+            
+        print("You do not have a farm.")
 
 class Salt_Mines(Building):
     def __init__(self, health):
@@ -105,62 +177,6 @@ class Barracks(Building):
             print("Invalid choice")
 
 
-
-    def build(self):
-
-        print("\nChoose a building:")
-        print("1. House (Cost: 208)")
-        print("2. Farm (Cost: 30)")
-        print("3. Barracks (Cost: 50)")
-
-        choice = input("> ")
-
-        if choice == "1":
-
-            if self.wealth >= 20:
-                self.wealth -= 20
-                self.population += 10
-                self.buildings.append(Housing(100,50))
-
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A House was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "2":
-
-            if self.wealth >= 30:
-                self.wealth -= 30
-                self.food += 50
-                self.buildings.append(Farm(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Farm was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "3":
-
-            if self.wealth >= 50:
-                self.wealth -= 50
-                self.military += 25
-                self.buildings.append(Barracks(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Barracks was built!")
-            else:
-                print("Not enough wealth!")
-
-        else:
-            print("Invalid choice.")
-
-
-
-
     def train_army(self):
 
         for building in self.buildings:
@@ -170,82 +186,4 @@ class Barracks(Building):
                 return
             
         print("You do not have a barracks.")
-
-    def build(self):
-
-        print("\nChoose a building:")
-        print("1. House (Cost: 20 coins)")
-        print("2. Farm (Cost: 30 coins)")
-        print("3. Barracks (Cost: 50 coins)")
-        print("4. Salt Mines (Cost: 25 coins)")
-
-        choice = input("> ")
-
-        if choice == "1":
-
-            if self.wealth >= 20:
-                self.wealth -= 20
-                self.population += 10
-                self.buildings.append(Housing(100,50))
-
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A House was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "2":
-
-            if self.wealth >= 30:
-                self.wealth -= 30
-                self.food += 50
-                self.buildings.append(Farm(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Farm was built!")
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "3":
-
-            if self.wealth >= 50:
-                self.wealth -= 50
-                self.military += 25
-                self.buildings.append(Barracks(100,50))
-                print("Building...")
-                time.sleep(2)  # Wait 2 seconds
-
-                print("A Barracks was built!")
-            else:
-                print("Not enough wealth!")
-
-        else:
-            print("Invalid choice.")
-
-    def farm(self):
-
-        food_gained = random.randint(20, 60)
-
-        self.food += food_gained
-        
-        print("Farming...")
-        time.sleep(2)  # Wait 2 seconds
-
-        print(f"\nYour farmers produced {food_gained} food!")
-
-    def train_army(self):
-
-        for building in self.buildings:
-
-            if isinstance(building, Barracks):
-                building.menu(self)
-                return
-            
-        print("You do not have a barracks.")
-
-
-
-                
 
