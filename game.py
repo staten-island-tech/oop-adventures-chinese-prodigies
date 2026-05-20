@@ -1,4 +1,4 @@
-from buildings import Building, Barracks, Housing, Farm, build
+from buildings import Building, Barracks, Housing, Farm, build, train_army
 from gov import make_political_decision
 from farm import farm
 from trade import trade_action

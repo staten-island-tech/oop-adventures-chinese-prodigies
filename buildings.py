@@ -177,13 +177,13 @@ class Barracks(Building):
             print("Invalid choice")
 
 
-    def train_army(self):
+def train_army(self):
 
-        for building in self.buildings:
+    for building in self.buildings:
 
-            if isinstance(building, Barracks):
-                building.menu(self)
-                return
+        if isinstance(building, Barracks):
+            building.menu(self)
+            return
             
-        print("You do not have a barracks.")
+    print("You do not have a barracks.")
 
