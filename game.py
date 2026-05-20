@@ -1,4 +1,4 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army
+from buildings import Building, Barracks, Housing, Farm, build
 from gov import make_political_decision
 from farm import farm
 from trade import trade_action
@@ -39,9 +39,9 @@ type = input("Where is your empire located?\n"
 
 if type == "1":
     print("You have chosen Forest Civilization.")
-    population = 150
+    population = 23
     food = 300
-    military = 50
+    military = 6
     wealth = 100
     trade = 80
     natural_resources = 100
@@ -49,27 +49,27 @@ if type == "1":
 
 elif type == "2":
     print("You have chosen Desert Civilization.")
-    population = 100
+    population = 30
     food = 200
-    military = 70
+    military = 6
     wealth = 150
     trade = 60
     natural_resources = 50
 
 elif type == "3":
     print("You have chosen Mountain Civilization.")
-    population = 80
+    population = 21
     food = 150
-    military = 100
+    military = 5
     wealth = 200
     trade = 40
     natural_resources = 120
 
 elif type == "4":
     print("You have chosen Island Civilization.")
-    population = 120
+    population = 37
     food = 250
-    military = 60
+    military = 15
     wealth = 180
     trade = 100
     natural_resources = 90
@@ -157,8 +157,7 @@ while True:
 
         break
 
-    def death(self):
-    if self.population <=0:
+    if population <=0:
         print("\nYour empire has fallen...")
         print("Game Over.")
 
