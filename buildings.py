@@ -121,7 +121,7 @@ class Salt_Mines(Building):
 class Barracks(Building):
     def __init__(self, health, capacity):
         super().__init__("Barracks", health)
-        self.capacity = 50
+        self.capacity = 25
         self.soldiers = 0
         self.people = 0
 
