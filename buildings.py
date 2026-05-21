@@ -94,15 +94,15 @@ class Farm(Building):
 
         print(f"\nYour farmers produced {food_gained} food!")
 
-    def farm(self):
+def farm(self):
 
-        for building in self.buildings:
+    for building in self.buildings:
 
-            if isinstance(building, Farm):
-                building.menu(self)
-                return
+        if isinstance(building, Farm):
+            building.menu(self)
+            return
             
-        print("You do not have a farm.")
+    print("You do not have a farm.")
 
 class Salt_Mines(Building):
     def __init__(self, health):
@@ -121,7 +121,7 @@ class Salt_Mines(Building):
 class Barracks(Building):
     def __init__(self, health, capacity):
         super().__init__("Barracks", health)
-        self.capacity = 25
+        self.capacity = 50
         self.soldiers = 0
         self.people = 0
 

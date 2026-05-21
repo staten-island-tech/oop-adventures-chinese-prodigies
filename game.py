@@ -1,6 +1,5 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army
+from buildings import Building, Barracks, Housing, Farm, build, train_army, farm
 from gov import make_political_decision
-from farm import farm
 from trade import trade_action
 # import events
 from buy import buy
@@ -40,7 +39,7 @@ type = input("Where is your empire located?\n"
 if type == "1":
     print("You have chosen Forest Civilization.")
     population = 23
-    food = 300
+    food = 200
     military = 6
     wealth = 100
     trade = 80
@@ -162,7 +161,3 @@ while True:
         print("Game Over.")
 
         break
-
-
-    else:
-        print("Invalid choice.")
