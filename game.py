@@ -1,4 +1,4 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army
+from buildings import *
 from gov import make_political_decision
 # from farm import farm
 from trade import trade_action
@@ -133,7 +133,7 @@ while True:
 
     elif choice == "4":
         buy(kingdom)
-        day(kingdom)
+        day(kingdom)     
 
     elif choice == "5":
         make_political_decision(kingdom)

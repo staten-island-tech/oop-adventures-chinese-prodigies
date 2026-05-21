@@ -72,12 +72,16 @@ class Housing(Building):
         self.capacity = capacity
         self.people = 0
 
-    def add_people(self, amount):
-        if self.people + amount <= self.capacity:
-            self.people += amount
-            print(f"{amount} people moved in")
-        else:
-            print("Not Enough Space")
+    def more_population(self):
+        for building in self.buildings:
+
+            if isinstance(building, Housing):
+                building.menu(self)
+                return
+            
+            # append to house, then add the poeple to hose population yay
+            
+        
 
 class Farm(Building):
     def __init__(self, health):
