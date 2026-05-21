@@ -156,6 +156,21 @@ while True:
 
         break
 
+    else:
+        print("invalid option ")
+
+    if population <=0:
+        print("\nYour empire has fallen...")
+        print("Game Over.")
+
+        break
+
+    if wealth <=0:
+        print("\nYour empire has fallen...")
+        print("Game Over.")
+
+        break
+
     if population <=0:
         print("\nYour empire has fallen...")
         print("Game Over.")
