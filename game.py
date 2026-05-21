@@ -1,6 +1,6 @@
 from buildings import Building, Barracks, Housing, Farm, build, train_army
 from gov import make_political_decision
-from farm import farm
+# from farm import farm
 from trade import trade_action
 # import events
 from buy import buy
