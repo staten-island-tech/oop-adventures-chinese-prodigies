@@ -16,11 +16,15 @@ class Building:
             print("Not enough funds")
 def build(self):
 
-        print("\nChoose a building:")
-        print("1. House (Cost: 20)")
-        print("2. Farm (Cost: 30)")
-        print("3. Barracks (Cost: 50)")
-        print("4. Salt Mines (Cost: 60)")
+        print("Choose a building:")
+        print("1. House (Cost: 20 wealth and 15 natural resources)\n"
+              "With each House you have, you will add 10 civilians to your population while also adding 2 for each house you have every day")
+        print("2. Farm (Cost: 30 wealth and 15 natural resources)\n"
+              "Every Farm you have gives u food")
+        print("3. Barracks (Cost: 50 wealth and 15 natural resources)\n"
+              "Barracks give you the option to train your army, letting you store civilians and train them into soldiers")
+        print("4. Salt Mines (Cost: 60 wealth and 35 natural resources)\n"
+              "Salt Mines give you natural resources every day")
 
         choice = input("> ")
 

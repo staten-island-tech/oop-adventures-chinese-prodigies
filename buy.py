@@ -13,7 +13,7 @@ def buy(self):
                 self.wealth -= 25
                 self.food += 50
 
-                print("You bought food supplies!")
+                print("You bought food supplies!\n")
 
             else:
                 print("Not enough wealth!")
