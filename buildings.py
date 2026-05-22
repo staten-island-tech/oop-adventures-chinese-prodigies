@@ -26,9 +26,9 @@ def build(self):
 
         if choice == "1":
 
-            if self.wealth >= 20:
+            if self.wealth >= 20 and self.natural_resources >= 15:
                 self.wealth -= 20
-                self.population += 10
+                self.natural_resources -= 15
                 self.buildings.append(Housing(100, 50))
                 
                 print("Building...")
@@ -36,12 +36,13 @@ def build(self):
 
                 print("A House was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         elif choice == "2":
 
-            if self.wealth >= 30:
+            if self.wealth >= 30 and self.natural_resources >= 15:
                 self.wealth -= 30
+                self.natural_resources -= 15
                 self.food += 50
                 self.buildings.append(Farm(100, 50))
                 print("Building...")
@@ -49,12 +50,13 @@ def build(self):
 
                 print("A Farm was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         elif choice == "3":
 
-            if self.wealth >= 50:
+            if self.wealth >= 50 and self.natural_resources >= 15:
                 self.wealth -= 50
+                self.natural_resources -= 15
                 self.military += 25
                 self.buildings.append(Barracks(100, 50))
                 print("Building...")
@@ -62,12 +64,13 @@ def build(self):
 
                 print("A Barracks was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         elif choice == "4":
 
-            if self.wealth >= 30:
+            if self.wealth >= 30 and self.natural_resources >= 35:
                 self.wealth -= 30
+                self.natural_resources -= 35
                 self.food += 50
                 self.buildings.append(Salt_Mines(100, 50))
                 print("Building...")
@@ -75,7 +78,7 @@ def build(self):
 
                 print("A Salt Mine was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         else:
             print("Invalid choice.")
