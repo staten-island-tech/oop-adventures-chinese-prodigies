@@ -190,4 +190,6 @@ while True:
         print("Your food source is low, farm, buy food, or youll die")
         buy(kingdom)
 
+    input("\nPress Enter to continue...")
+
 
