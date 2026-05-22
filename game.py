@@ -91,6 +91,8 @@ class Kingdom:
         self.natural_resources = natural_resources
         self.buildings = []
         self.daynumber = 1 
+        house_count = sum(isinstance(b, Housing) for b in self.buildings)
+        self.population = house_count * 10
 
 
 

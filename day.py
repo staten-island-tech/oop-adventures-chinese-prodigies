@@ -7,6 +7,9 @@ def day(self):
     self.food -= consumed
     print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
 
+    growth = self.house_count * 2
+    self.population += growth
+
     if self.trade == "China"or "England"or  "Ottoman"or "Safavid"or "Mughal"or "Spain" or "Mali" or "Mongols":
               
         mat_trade = random.randint(10, 20)+4
