@@ -17,9 +17,10 @@ class Building:
 def build(self):
 
         print("\nChoose a building:")
-        print("1. House (Cost: 208)")
+        print("1. House (Cost: 20)")
         print("2. Farm (Cost: 30)")
         print("3. Barracks (Cost: 50)")
+        print("4. Salt Mines (Cost: 60)")
 
         choice = input("> ")
 
@@ -28,8 +29,8 @@ def build(self):
             if self.wealth >= 20:
                 self.wealth -= 20
                 self.population += 10
-                self.buildings.append(Housing(100,50))
-
+                self.buildings.append(Housing(100, 50))
+                
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -42,7 +43,7 @@ def build(self):
             if self.wealth >= 30:
                 self.wealth -= 30
                 self.food += 50
-                self.buildings.append(Farm(100,50))
+                self.buildings.append(Farm(100, 50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -55,11 +56,24 @@ def build(self):
             if self.wealth >= 50:
                 self.wealth -= 50
                 self.military += 25
-                self.buildings.append(Barracks(100,50))
+                self.buildings.append(Barracks(100, 50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Barracks was built!")
+            else:
+                print("Not enough wealth!")
+
+        elif choice == "4":
+
+            if self.wealth >= 30:
+                self.wealth -= 30
+                self.food += 50
+                self.buildings.append(Salt_Mines(100, 50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Salt Mine was built!")
             else:
                 print("Not enough wealth!")
 
@@ -72,12 +86,16 @@ class Housing(Building):
         self.capacity = capacity
         self.people = 0
 
-    def add_people(self, amount):
-        if self.people + amount <= self.capacity:
-            self.people += amount
-            print(f"{amount} people moved in")
-        else:
-            print("Not Enough Space")
+    def more_population(self):
+        for building in self.buildings:
+
+            if isinstance(building, Housing):
+                building.menu(self)
+                return
+            
+            # append to house, then add the poeple to hose population yay
+            
+        
 
 class Farm(Building):
     def __init__(self, health):

@@ -1,5 +1,6 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army, farm
+from buildings import *
 from gov import make_political_decision
+# from farm import farm
 from trade import trade_action
 # import events
 from buy import buy
@@ -38,37 +39,40 @@ type = input("Where is your empire located?\n"
 
 if type == "1":
     print("You have chosen Forest Civilization.")
-    population = 18
-    food = 200
+    population = 23
+    food = 300
     military = 6
     wealth = 100
+    trade = 80
     natural_resources = 100
 
 
 elif type == "2":
     print("You have chosen Desert Civilization.")
-    population = 23
+    population = 30
     food = 200
     military = 6
     wealth = 150
+    trade = 60
     natural_resources = 50
 
 elif type == "3":
     print("You have chosen Mountain Civilization.")
-    population = 14
+    population = 21
     food = 150
     military = 5
     wealth = 200
+    trade = 40
     natural_resources = 120
 
 elif type == "4":
     print("You have chosen Island Civilization.")
-    population = 20
+    population = 37
     food = 250
     military = 15
-    wealth = 200
+    wealth = 180
+    trade = 100
     natural_resources = 90
-
 else:
     print("Invalid choice")
 
@@ -87,7 +91,8 @@ class Kingdom:
         self.natural_resources = natural_resources
         self.buildings = []
         self.daynumber = 1 
-
+        house_count = sum(isinstance(b, Housing) for b in self.buildings)
+        self.population = house_count * 10
 
 
 
@@ -130,7 +135,7 @@ while True:
 
     elif choice == "4":
         buy(kingdom)
-        day(kingdom)
+        day(kingdom)     
 
     elif choice == "5":
         make_political_decision(kingdom)
@@ -154,40 +159,12 @@ while True:
 
         break
 
+    if population <=0:
+        print("\nYour empire has fallen...")
+        print("Game Over.")
+
+        break
+
+
     else:
-        print("invalid option ")
-
-    if kingdom.population <=0:
-        print("\nYour empire has fallen...")
-        print("Game Over.")
-        break
-
-    if kingdom.population <=10:
-        print("Your Population is low, buy houses or you will die")
-
-
-    if kingdom.wealth <=0:
-        print("\nYour empire has fallen...")
-        print("Game Over.")
-        break
-
-    if kingdom.wealth <=10:
-        print("Your wealth is low...trade or you will die")
-
-    if kingdom.food <=0:
-        numberchances = 1
-        print("your men are starving!!!!!buy food!!!!!!!!!!(final chance)")
-        buy(kingdom)
-        numberchances +=1
-        if numberchances == 2:
-            print("\nYour empire has fallen...")
-            print("Game Over.")
-
-            break
-
-
-    if kingdom.food <=10:
-        print("Your food source is low, farm, buy food, or youll die")
-        buy(kingdom)
-
-
+        print("Invalid choice.")
