@@ -1,4 +1,4 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army, farm
+from buildings import *
 from gov import make_political_decision
 from trade import trade_action
 # import events
@@ -92,6 +92,7 @@ class Kingdom:
 
 
 
+
 kingdom = Kingdom(
     name,
     population,
@@ -99,6 +100,7 @@ kingdom = Kingdom(
     military,
     wealth,
     natural_resources
+    
 )
 
 while True:

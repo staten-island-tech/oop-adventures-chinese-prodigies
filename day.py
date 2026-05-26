@@ -1,4 +1,5 @@
 import random
+from buildings import *
 
 def day(self):
     self.daynumber += 1
@@ -7,8 +8,13 @@ def day(self):
     self.food -= consumed
     print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
 
+    house_count = sum(isinstance(b, Housing) for b in self.buildings)
+    self.population += house_count * 10
+
     growth = self.house_count * 2
     self.population += growth
+
+
 
     if self.trade == "China"or "England"or  "Ottoman"or "Safavid"or "Mughal"or "Spain" or "Mali" or "Mongols":
               
