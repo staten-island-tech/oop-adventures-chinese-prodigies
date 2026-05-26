@@ -16,52 +16,73 @@ class Building:
             print("Not enough funds")
 def build(self):
 
-        print("\nChoose a building:")
-        print("1. House (Cost: 208)")
-        print("2. Farm (Cost: 30)")
-        print("3. Barracks (Cost: 50)")
+        print("Choose a building:")
+        print("1. House (Cost: 20 wealth and 15 natural resources)\n"
+              "With each House you have, you will add 10 civilians to your population while also adding 2 for each house you have every day")
+        print("2. Farm (Cost: 30 wealth and 15 natural resources)\n"
+              "Every Farm you have gives u food")
+        print("3. Barracks (Cost: 50 wealth and 15 natural resources)\n"
+              "Barracks give you the option to train your army, letting you store civilians and train them into soldiers")
+        print("4. Salt Mines (Cost: 60 wealth and 35 natural resources)\n"
+              "Salt Mines give you natural resources every day")
 
         choice = input("> ")
 
         if choice == "1":
 
-            if self.wealth >= 20:
+            if self.wealth >= 20 and self.natural_resources >= 15:
                 self.wealth -= 20
-                self.population += 10
-                self.buildings.append(Housing(100,50))
-
+                self.natural_resources -= 15
+                self.buildings.append(Housing(100, 50))
+                
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A House was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         elif choice == "2":
 
-            if self.wealth >= 30:
+            if self.wealth >= 30 and self.natural_resources >= 15:
                 self.wealth -= 30
+                self.natural_resources -= 15
                 self.food += 50
-                self.buildings.append(Farm(100,50))
+                self.buildings.append(Farm(100, 50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Farm was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
 
         elif choice == "3":
 
-            if self.wealth >= 50:
+            if self.wealth >= 50 and self.natural_resources >= 15:
                 self.wealth -= 50
+                self.natural_resources -= 15
                 self.military += 25
-                self.buildings.append(Barracks(100,50))
+                self.buildings.append(Barracks(100, 50))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Barracks was built!")
             else:
-                print("Not enough wealth!")
+                print("Not enough wealth or natural resources!")
+
+        elif choice == "4":
+
+            if self.wealth >= 30 and self.natural_resources >= 35:
+                self.wealth -= 30
+                self.natural_resources -= 35
+                self.food += 50
+                self.buildings.append(Salt_Mines(100, 50))
+                print("Building...")
+                time.sleep(2)  # Wait 2 seconds
+
+                print("A Salt Mine was built!")
+            else:
+                print("Not enough wealth or natural resources!")
 
         else:
             print("Invalid choice.")
@@ -72,12 +93,16 @@ class Housing(Building):
         self.capacity = capacity
         self.people = 0
 
-    def add_people(self, amount):
-        if self.people + amount <= self.capacity:
-            self.people += amount
-            print(f"{amount} people moved in")
-        else:
-            print("Not Enough Space")
+    def more_population(self):
+        for building in self.buildings:
+
+            if isinstance(building, Housing):
+                building.menu(self)
+                return
+            
+            # append to house, then add the poeple to hose population yay
+            
+        
 
 class Farm(Building):
     def __init__(self, health):
