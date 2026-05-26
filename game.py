@@ -118,34 +118,42 @@ while True:
 
     if choice == "1":
         build(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "2":
         farm(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "3":
         train_army(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "4":
         buy(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "5":
         make_political_decision(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "6":
         trade_action(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "7":
         gather_resources(kingdom)
+        input("\nPress Enter to continue...")
         day(kingdom)
 
     elif choice == "8":
         show_status(kingdom)
+        input("\nPress Enter to continue...")
 
     elif choice == "9":
         
@@ -190,6 +198,5 @@ while True:
         print("Your food source is low, farm, buy food, or youll die")
         buy(kingdom)
 
-    input("\nPress Enter to continue...")
 
 
