@@ -1,4 +1,4 @@
-from buildings import Building, Barracks, Housing, Farm, build, train_army, farm
+from buildings import *
 from gov import make_political_decision
 from trade import trade_action
 # import events
@@ -87,6 +87,8 @@ class Kingdom:
         self.natural_resources = natural_resources
         self.buildings = []
         self.daynumber = 1 
+        house_count = 0
+
 
 
 
@@ -99,6 +101,7 @@ kingdom = Kingdom(
     military,
     wealth,
     natural_resources
+    
 )
 
 while True:
