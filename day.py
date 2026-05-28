@@ -8,8 +8,10 @@ def day(self):
     self.food -= consumed
     print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
 
-    growth = self.house_count*2
-    self.population += growth
+    if self.house_count > 0:
+        growth = self.house_count*2
+        self.population += growth
+        print(f"Your population increased by {growth}")
 
     if self.trade in [
         "China",
