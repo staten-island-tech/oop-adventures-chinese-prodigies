@@ -1,9 +1,10 @@
 def buy(self):
 
         print("\nChoose an item to buy:")
-        print("1. Food Supply (Cost: 25)")
-        print("2. Weapons (Cost: 40)")
-        print("3. Trade Caravan (Cost: 50)")
+        print("1. Food Supply (Cost: 25)\n"
+              "Will give you +25 Food")
+        print("2. Trade Caravan (Cost: 50)\n"
+              "dont know what this does")
 
         choice = input("> ")
 
@@ -19,17 +20,6 @@ def buy(self):
                 print("Not enough wealth!")
 
         elif choice == "2":
-
-            if self.wealth >= 40:
-                self.wealth -= 40
-                self.military += 20
-
-                print("You bought weapons!")
-
-            else:
-                print("Not enough wealth!")
-
-        elif choice == "3":
 
             if self.wealth >= 50:
                 self.wealth -= 50

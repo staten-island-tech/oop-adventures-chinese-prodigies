@@ -95,7 +95,7 @@ class Housing(Building):
         super().__init__("House", health)
         self.capacity = capacity
         self.people = 0
-        self.name = "Housing"
+        self.name = "House"
         
     def __str__(self):
         return self.name
@@ -117,6 +117,13 @@ class Housing(Building):
 class Farm(Building):
     def __init__(self, health):
         super().__init__("Farm", health)
+        self.name = "Farm"
+        
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     def farm(self):
 
@@ -143,12 +150,20 @@ class Salt_Mines(Building):
     def __init__(self, health):
         super().__init__("Salt Mines", health)
         self.days = 1
+        self.name = "Salt Mines"
+        
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
     
     def make_resources(self, kingdom):
         if self.day > kingdom.daynumber:
             self.day = kingdom.daynumber
             resources_made = random.randint(20, 40)
             self.natural_resources += resources_made
+            
             
 
         
@@ -159,6 +174,14 @@ class Barracks(Building):
         self.capacity = 50
         self.soldiers = 0
         self.people = 0
+        self.name = "Barracks"
+        
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
 
     def add_people(self, kingdom, amount):
         if kingdom.population < amount:
@@ -183,18 +206,17 @@ class Barracks(Building):
         
         self.people -= amount
         self.soldiers += amount
-        kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
-        print(f"Soldiers in Barracks: {self.soldiers}/{self.capacity}")
-        print(f"Civilians in Barracks: {self.people}/{self.capacity}")
-        print(f"Total People in Barracks: {self.people + self.soldiers}/{self.capacity}")
-
+        print(f"Civilians in Barracks Now: {self.people}/{self.capacity}")
 
     def menu(self, kingdom):
 
         print("\n=== Barracks ===")
-        print("1. Send civilians to barracks")
-        print("2. Train soldiers")
+        print("1. Send civilians to barracks\n"
+              "This option sends civilians from your empire into the barracks, subtracting your population, capacity is 50")
+        print("2. Train soldiers\n"
+              "This option gives you the option to turn the civilians inside your barracks into soldiers\n"
+                "which will be added to your military and taken out of the barracks automatically")
 
         choice = input("> ")
 
