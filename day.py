@@ -1,4 +1,5 @@
 import random
+from buildings import *
 
 def day(self):
     self.daynumber += 1
@@ -6,6 +7,9 @@ def day(self):
     consumed = self.population * random.randint(1, 2)+23
     self.food -= consumed
     print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
+
+    growth = self.house_count*2
+    self.population += growth
 
     if self.trade in [
         "China",
