@@ -51,7 +51,7 @@ def build(self):
                 self.wealth -= 30
                 self.natural_resources -= 15
                 self.food += 50
-                self.buildings.append(Farm(100, 50))
+                self.buildings.append(Farm(100))
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -92,9 +92,8 @@ def build(self):
             print("Invalid choice.")
 
 class Housing(Building):
-    def __init__(self, health, capacity):
-        super().__init__("House", health)
-        self.capacity = capacity
+    def __init__(self):
+        super().__init__("House")
         self.people = 0
         self.name = "House"
         
@@ -116,8 +115,8 @@ class Housing(Building):
         
 
 class Farm(Building):
-    def __init__(self, health):
-        super().__init__("Farm", health)
+    def __init__(self):
+        super().__init__("Farm")
         self.name = "Farm"
         
     def __str__(self):
@@ -148,8 +147,8 @@ def farm(self):
     print("You do not have a farm.")
 
 class Salt_Mines(Building):
-    def __init__(self, health):
-        super().__init__("Salt Mines", health)
+    def __init__(self):
+        super().__init__("Salt Mines")
         self.days = 1
         self.name = "Salt Mines"
         
@@ -170,8 +169,8 @@ class Salt_Mines(Building):
         
 
 class Barracks(Building):
-    def __init__(self, health, capacity):
-        super().__init__("Barracks", health)
+    def __init__(self,):
+        super().__init__("Barracks")
         self.capacity = 50
         self.soldiers = 0
         self.people = 0
