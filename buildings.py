@@ -1,5 +1,6 @@
 import time
 import random
+from day import day
 
 class Building:
     def __init__(self, name, health):
