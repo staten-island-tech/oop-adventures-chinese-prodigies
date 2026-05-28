@@ -4,7 +4,7 @@ from buildings import *
 def day(self):
     self.daynumber += 1
     print(f"\nA new day begins... Day {self.daynumber}")
-    consumed = self.population * random.randint(1, 2)+9
+    consumed = self.population + self.military * random.randint(1, 2)+9
     self.food -= consumed
     print(f"\n Your population of {self.population} has consumed {consumed} rice bowls")
 
@@ -12,6 +12,12 @@ def day(self):
         growth = self.house_count*2
         self.population += growth
         print(f"Your population increased by {growth}")
+
+    if self.saltmine > 0:
+        growth1 = self.saltmine*2
+        self.natural_resources += growth1
+        print(f"Your resources increased by {growth1}")
+    
 
     if self.trade in [
         "China",

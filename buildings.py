@@ -65,7 +65,7 @@ def build(self):
                 self.wealth -= 50
                 self.natural_resources -= 15
                 self.military += 25
-                self.buildings.append(Barracks(100, 50))
+                self.buildings.append(Barracks)
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -79,7 +79,8 @@ def build(self):
                 self.wealth -= 30
                 self.natural_resources -= 35
                 self.food += 50
-                self.buildings.append(Salt_Mines(100, 50))
+                self.saltmine +=1
+                self.buildings.append(Salt_Mines)
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 

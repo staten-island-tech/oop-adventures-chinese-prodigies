@@ -8,6 +8,8 @@ def trade_action(self):
         trade_mat = random.randint(1, max_mat)
         trade_wealth = random.randint(1, max_wealth)
         military = self.military
+        lost_mat= random.randint(1,10)
+        lost1= random.randint(1,10)
 
         print(f"{test_country} would like to trade with you for materials and spices")
         print(f"1. Trade with {test_country}...You will lose {trade_mat} wood and iron but increase wealth by {trade_wealth}")
@@ -45,10 +47,10 @@ def trade_action(self):
 
         elif choice == "2":
 
-            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
+            print(f"{test_country} was extremely mad and attempted to steal from u. you lost {lost_mat} wood/metal and {lost1} military trying to defend")
 
-            self.military += 20
-            self.population -= 10
+            self.military -= lost1
+            self.natural_resources -= lost1
 
         else:
             print("Invalid decision.")
