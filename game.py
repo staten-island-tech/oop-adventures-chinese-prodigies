@@ -87,6 +87,7 @@ class Kingdom:
         self.natural_resources = natural_resources
         self.buildings = []
         self.daynumber = 1 
+        house_count = 0
 
 
 

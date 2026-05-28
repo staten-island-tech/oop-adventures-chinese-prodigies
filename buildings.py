@@ -33,6 +33,8 @@ def build(self):
             if self.wealth >= 20 and self.natural_resources >= 15:
                 self.wealth -= 20
                 self.natural_resources -= 15
+                self.house_count += 1
+                self.population += self.house_count * 10
                 self.buildings.append(Housing(100, 50))
                 
                 print("Building...")
