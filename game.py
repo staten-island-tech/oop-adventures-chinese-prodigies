@@ -48,15 +48,15 @@ if type == "1":
 elif type == "2":
     print("You have chosen Desert Civilization.")
     population = 23
-    food = 200
+    food = 225
     military = 6
     wealth = 150
-    natural_resources = 50
+    natural_resources = 80
 
 elif type == "3":
     print("You have chosen Mountain Civilization.")
     population = 14
-    food = 150
+    food = 180
     military = 5
     wealth = 200
     natural_resources = 120
@@ -64,7 +64,7 @@ elif type == "3":
 elif type == "4":
     print("You have chosen Island Civilization.")
     population = 20
-    food = 250
+    food = 217
     military = 15
     wealth = 200
     natural_resources = 90
@@ -88,6 +88,7 @@ class Kingdom:
         self.buildings = []
         self.daynumber = 1 
         self.house_count = 0
+        self.saltmine=0
 
 
 
