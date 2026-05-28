@@ -95,6 +95,13 @@ class Housing(Building):
         super().__init__("House", health)
         self.capacity = capacity
         self.people = 0
+        self.name = "Housing"
+        
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     def more_population(self):
         for building in self.buildings:
