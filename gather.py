@@ -2,9 +2,25 @@ import random
 import time
 def gather_resources(self):
         location = input("Where would you like to send your members to search? (Cave, Forest, Mountain, Ocean, etc)")
-        amount = int(input("How many people would you like to send?:"))
-        if amount > 0 and amount <= self.population:
-                resources_found = amount*random.randint(5, 10)+4
+
+        while True:
+                amount_input = input("How many people would you like to send?:")
+
+                if amount_input.strip() == "":
+                        print("Insufficient amount of people/invalid option")
+                        continue
+
+                if not amount_input.isdigit():
+                        print("Insufficient amount of people/invalid option")
+                        continue
+        
+                amount = int(amount_input)
+
+                if amount <= 0 or amount > self.population:
+                        print("You dont have enough population")
+                        continue
+
+                resources_found = amount*random.randint(1, 5)+2
 
                 people = random.randint(1, amount)
 
@@ -14,6 +30,6 @@ def gather_resources(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print(f"\nYour {amount} workers gathered {resources_found} natural resources!...BUT {people} people died from overworking in the sun")
+                break
 
-        else:
-                print("insufficent amount of people/invalid option")
+                
