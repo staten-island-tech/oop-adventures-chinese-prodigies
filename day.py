@@ -11,12 +11,12 @@ def day(self):
     if self.house_count > 0:
         growth = self.house_count*2
         self.population += growth
-        print(f"Your population increased by {growth}")
+        print(f"Your population increased by {growth} from houses")
 
     if self.saltmine > 0:
         growth1 = self.saltmine*2
         self.natural_resources += growth1
-        print(f"Your resources increased by {growth1}")
+        print(f"Your resources increased by {growth1} from the salt mines")
     
 
     if self.trade in [

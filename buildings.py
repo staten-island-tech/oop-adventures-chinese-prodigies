@@ -51,7 +51,7 @@ def build(self):
                 self.wealth -= 30
                 self.natural_resources -= 15
                 self.food += 50
-                self.buildings.append(Farm(100, 50))
+                self.buildings.append(Farm)
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
