@@ -36,7 +36,7 @@ def build(self):
                 self.natural_resources -= 15
                 self.house_count += 1
                 self.population += self.house_count * 10
-                self.buildings.append(Housing(100, 50))
+                self.buildings.append(Housing)
                 
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
@@ -51,7 +51,7 @@ def build(self):
                 self.wealth -= 30
                 self.natural_resources -= 15
                 self.food += 50
-                self.buildings.append(Farm(100))
+                self.buildings.append(Farm)
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
