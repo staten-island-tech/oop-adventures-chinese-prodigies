@@ -5,7 +5,6 @@ from day import day
 class Building:
     def __init__(self, name):
         self.name = name
-        self.health = health
 
     def fix(self, kingdom, cost):
         if kingdom.wealth >= cost:
@@ -36,7 +35,7 @@ def build(self):
                 self.natural_resources -= 15
                 self.house_count += 1
                 self.population += self.house_count * 10
-                self.buildings.append(Housing)
+                self.buildings.append(Housing())
                 
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
@@ -51,7 +50,7 @@ def build(self):
                 self.wealth -= 30
                 self.natural_resources -= 15
                 self.food += 50
-                self.buildings.append(Farm)
+                self.buildings.append(Farm())
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -65,7 +64,7 @@ def build(self):
                 self.wealth -= 50
                 self.natural_resources -= 15
                 self.military += 25
-                self.buildings.append(Barracks)
+                self.buildings.append(Barracks())
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -80,7 +79,7 @@ def build(self):
                 self.natural_resources -= 35
                 self.food += 50
                 self.saltmine +=1
-                self.buildings.append(Salt_Mines)
+                self.buildings.append(Salt_Mines())
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
