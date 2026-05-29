@@ -11,28 +11,31 @@ def day(self):
     if self.house_count > 0:
         growth = self.house_count*2
         self.population += growth
-        print(f"Your population increased by {growth} from houses")
+        print(f"Your population increased by {growth} from the {self.house_count} houses")
 
     if self.saltmine > 0:
         growth1 = self.saltmine*2
         self.natural_resources += growth1
-        print(f"Your resources increased by {growth1} from the salt mines")
+        print(f"Your resources increased by {growth1} from the {self.saltmine} salt mines")
     
 
-    if self.trade in [
-        "China",
-        "England",
-        "Ottoman",
-        "Safavid",
-        "Mughal",
-        "Spain",
-        "Mali",
-        "Mongols"
-    ]:
-              
-        mat_trade = random.randint(10, 20)+4
-        coin_trade = random.randint(1, 10)+2
-        self.natural_resources -= mat_trade
-        self.wealth += coin_trade
+    trade_countries = [
+    "China",
+    "England",
+    "Ottoman",
+    "Safavid",
+    "Mughal",
+    "Spain",
+    "Mali",
+    "Mongols"
+]
 
-        print(f"Your alliances {self.trade} has traded you {coin_trade} coins for {mat_trade} wood/metal")
+    for country in self.trade:
+        if country in trade_countries:
+            mat_trade = random.randint(10, 20)+4
+            coin_trade = random.randint(1, 10)+2
+            if self.natural_resources > mat_trade:
+                self.natural_resources -= mat_trade
+                self.wealth += coin_trade
+
+                print(f"Your alliances {self.trade} has traded you {coin_trade} coins for {mat_trade} wood/metal")

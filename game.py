@@ -89,6 +89,7 @@ class Kingdom:
         self.daynumber = 1 
         self.house_count = 0
         self.saltmine=0
+        self.farm1 = 0
 
 
 

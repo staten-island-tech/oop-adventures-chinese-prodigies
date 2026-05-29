@@ -20,7 +20,7 @@ def build(self):
         print("1. House (Cost: 20 wealth and 15 natural resources)\n"
               "With each House you have, you will add 10 civilians to your population while also adding 2 for each house you have every day")
         print("2. Farm (Cost: 30 wealth and 15 natural resources)\n"
-              "Every Farm you have gives u food")
+              "Every Farm allows you to farm for rice :p")
         print("3. Barracks (Cost: 50 wealth and 15 natural resources)\n"
               "Barracks give you the option to train your army, letting you store civilians and train them into soldiers")
         print("4. Salt Mines (Cost: 60 wealth and 35 natural resources)\n"
@@ -51,6 +51,7 @@ def build(self):
                 self.natural_resources -= 15
                 self.food += 50
                 self.buildings.append(Farm())
+                self.farm1 =+1
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -117,30 +118,29 @@ class Farm(Building):
     def __init__(self):
         super().__init__("Farm")
         self.name = "Farm"
-        
+
     def __str__(self):
         return self.name
 
     def __repr__(self):
         return self.name
 
-    def farm(self):
+    def farm(self, player): 
+        food_gained =self.farm1 * random.randint(20, 60)
 
-        food_gained = random.randint(20, 60)
+        player.food += food_gained
 
-        self.food += food_gained
-        
         print("Farming...")
-        time.sleep(2)  # Wait 2 seconds
+        time.sleep(2)
 
-        print(f"\nYour farmers produced {food_gained} food!")
+        print(f"\nYour farmers produced {food_gained} food (rice bowl) using {farm1} farm!")
 
 def farm(self):
 
     for building in self.buildings:
 
         if isinstance(building, Farm):
-            building.menu(self)
+            building.farm(self)
             return
             
     print("You do not have a farm.")
