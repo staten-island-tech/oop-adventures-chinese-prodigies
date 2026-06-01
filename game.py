@@ -43,6 +43,7 @@ if type == "1":
     military = 6
     wealth = 100
     natural_resources = 100
+    
 
 
 elif type == "2":
@@ -71,6 +72,7 @@ elif type == "4":
 
 else:
     print("Invalid choice")
+    exit()
 
 
 class Kingdom:
@@ -139,7 +141,6 @@ while True:
     elif choice == "4":
         buy(kingdom)
         input("\nPress Enter to continue...")
-        day(kingdom)
 
     elif choice == "5":
         make_political_decision(kingdom)

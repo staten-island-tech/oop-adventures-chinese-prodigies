@@ -49,9 +49,10 @@ def build(self):
             if self.wealth >= 30 and self.natural_resources >= 15:
                 self.wealth -= 30
                 self.natural_resources -= 15
-                self.food += 50
+
                 self.buildings.append(Farm())
-                self.farm1 =+1
+
+                self.farm1 += 1
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
@@ -125,15 +126,19 @@ class Farm(Building):
     def __repr__(self):
         return self.name
 
-    def farm(self, player): 
-        food_gained =self.farm1 * random.randint(20, 60)
+    def farm(self, kingdom):
+        print(f"Number of farms = {kingdom.farm1}")
 
-        player.food += food_gained
+        food_gained = kingdom.farm1 * random.randint(20, 60)
+
+        kingdom.food += food_gained
 
         print("Farming...")
         time.sleep(2)
 
-        print(f"\nYour farmers produced {food_gained} food (rice bowl) using {farm1} farm!")
+        print(
+            f"\nYour farmers produced {food_gained} food using {kingdom.farm1} farm(s)!"
+        )
 
 def farm(self):
 

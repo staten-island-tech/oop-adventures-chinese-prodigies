@@ -20,9 +20,9 @@ def gather_resources(self):
                         print("You dont have enough population")
                         continue
 
-                resources_found = amount*random.randint(1, 5)+2
+                resources_found = amount*random.randint(3, 10)+2
 
-                people = random.randint(1, amount)
+                people = int(amount * random.uniform(0.1, 0.12))
 
                 self.natural_resources += resources_found
                 self.population -= people
