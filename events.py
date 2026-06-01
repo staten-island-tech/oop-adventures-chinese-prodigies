@@ -19,7 +19,7 @@ def trigger_event(kingdom):
     
 
     def plague(kingdom):
-        print("\n☠️ A DEADLY PLAGUE SPREADS THROUGH YOUR KINGDOM!")
+        print("\n☠️ A DEADLY PLAGUE SPREADS THROUGH YOUR KINGDOM!...")
         time.sleep(1)
 
         deaths = max(1, int(kingdom.population * random.uniform(0.05, 0.2)))
@@ -30,3 +30,36 @@ def trigger_event(kingdom):
 
         print(f"{deaths} people have died.")
         print(f"You lost {food_loss} food due to chaos and sickness.")
+
+    def harvest_blessing(kingdom):
+        print("\n🌾 A BLESSED HARVEST FILLS YOUR FARMS!...")
+
+        food = random.randint(100, 400)
+        kingdom.food += food
+
+        print(f"You gained {food} food.")
+
+    def trade_boost(kingdom):
+        print("\n💰 MERCHANTS BRING GREAT TRADE OFFERS!...")
+
+        wealth = random.randint(100, 400)
+        kingdom.wealth += wealth
+
+        print(f"You gained {wealth} wealth from trade.")
+
+    def bandit_attack(kingdom):
+        print("\n🏴 BANDITS ARE RAIDING YOUR LANDS!...")
+        time.sleep(1)
+
+        if kingdom.military < 20:
+            loss = random.randint(20, 60)
+            kingdom.wealth = max(0, kingdom.wealth - loss)
+            kingdom.population -= random.randint(1, 5)
+
+            print("Your army is too weak to defend properly!")
+            print(f"You lost {loss} wealth and some civilians were killed.")
+        else:
+            print("Your army repelled the bandits!")
+            loot = random.randint(10, 30)
+            kingdom.wealth += loot
+            print(f"You gained {loot} wealth from stolen goods. yay")
