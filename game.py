@@ -2,7 +2,7 @@ from buildings import *
 from gov import make_political_decision
 from trade import trade_action
 from events import trigger_event
-from buy import buy
+from buy import *
 from gather import gather_resources
 from day import day
 from status import show_status
@@ -197,20 +197,15 @@ while True:
         print("Your wealth is low...trade or you will die")
 
     if kingdom.food <=0:
-        numberchances = 1
         print("your men are starving!!!!!buy food!!!!!!!!!!(final chance)")
-        buy(kingdom)
-        numberchances +=1
-        if numberchances == 2:
-            print("\nYour empire has fallen...")
-            print("Game Over.")
-
+        force_buy(kingdom)
+        if kingdom.food <= 0:
             break
 
 
     if kingdom.food <=10:
         print("Your food source is low, farm, buy food, or youll die")
-        buy(kingdom)
+
 
 
 
