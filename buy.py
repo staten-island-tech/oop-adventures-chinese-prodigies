@@ -1,10 +1,12 @@
+# from game import numberchances
+
 def buy(self):
 
         print("\nChoose an item to buy:")
         print("1. Food Supply (Cost: 25)\n"
               "Will give you +100 Food")
-        # print("2. Trade Caravan (Cost: 50)\n"
-        #       "dont know what this does")
+        print("2. Trade Caravan (Cost: 50)\n"
+              "dont know what this does")
 
         choice = input("> ")
 
@@ -19,18 +21,44 @@ def buy(self):
             else:
                 print("Not enough wealth!")
 
-        # elif choice == "2":
+        elif choice == "2":
 
-        #     if self.wealth >= 50:
-        #         self.wealth -= 50
-        #         self.trade += 25
+            if self.wealth >= 50:
+                self.wealth -= 50
+                self.trade += 25
 
-        #         print("You bought a trade caravan!")
+                print("You bought a trade caravan!")
 
-        #     else:
-        #         print("Not enough wealth!")
+            else:
+                print("Not enough wealth!")
 
-        # else:
-        #     print("Invalid choice.")
+        else:
+            print("Invalid choice.")
+
+
+def force_buy(self):
+        
+    people = self.population * 1.5
+    money = self.wealth * .75
+    print("\nYou HAVE to buy this or your kingdom will fall")
+    print(f"1. {people} amount of food (Cost: {money})")
+    print(f"2. I wanna die")
+
+    choice = input("> ")
+
+    if choice == "1":
+
+        if self.wealth >= money:
+            self.wealth -= money
+            self.food += people
+
+            print("You bought it")
+
+    elif choice == "2":
+        print("Your empire has ended")
+    else:
+            print("Invalid choice:)")
+            return
+
 
 
