@@ -32,7 +32,7 @@ def day(self):
 
     for country in self.trade:
         if country in trade_countries:
-            mat_trade = random.randint(10, 20)+4
+            mat_trade = random.randint(40, 70)+4
             coin_trade = random.randint(1, 10)+2
             if self.natural_resources > mat_trade:
                 self.natural_resources -= mat_trade

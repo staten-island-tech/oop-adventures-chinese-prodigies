@@ -1,5 +1,5 @@
 from buildings import *
-from gov import make_political_decision
+from gov import make_decision
 from trade import trade_action
 from events import trigger_event
 from buy import buy
@@ -41,7 +41,7 @@ if type == "1":
     population = 18
     food = 200
     military = 6
-    wealth = 100
+    wealth = 175
     natural_resources = 100
     
 
@@ -72,8 +72,12 @@ elif type == "4":
 
 else:
     print("Invalid choice")
-    exit()
-
+    print("You been assigned to the casual forest option...")
+    population = 18
+    food = 200
+    military = 6
+    wealth = 100
+    natural_resources = 100
 
 class Kingdom:
 
@@ -125,49 +129,49 @@ while True:
 
     if choice == "1":
         build(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "2":
         farm(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "3":
         train_army(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "4":
         buy(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
 
     elif choice == "5":
-        make_political_decision(kingdom)
-        trigger_event(kingdom)
+        make_decision(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "6":
         trade_action(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "7":
         gather_resources(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
         day(kingdom)
 
     elif choice == "8":
         show_status(kingdom)
-        trigger_event(kingdom)
         input("\nPress Enter to continue...")
+        trigger_event(kingdom)
 
     elif choice == "9":
         

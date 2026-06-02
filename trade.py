@@ -5,12 +5,12 @@ def trade_action(self):
         test_country = random.choice(country)
         max_mat = self.natural_resources
         max_wealth = self.wealth
-        trade_mat = random.randint(1, max_mat)
-        trade_wealth = random.randint(1, max_wealth)
+        trade_mat = int(max_mat * random.uniform(0.20, 0.30))
+        trade_wealth = random.randint(30, 100)
         military = self.military
         lost_mat= random.randint(1,10)
         lost1= random.randint(1,10)
-        armydied = random.randint(1, military)
+        armydied = int(military * random.uniform(0, 0.25))
 
         print(f"{test_country} would like to trade with you for materials and spices")
         print(f"1. Trade with {test_country}...You will lose {trade_mat} wood and iron but increase wealth by {trade_wealth}")
@@ -22,7 +22,7 @@ def trade_action(self):
             if max_mat >= trade_mat:
                 self.natural_resources -= trade_mat 
                 self.wealth+= trade_wealth 
-                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 10-20 wood material. Do you accept to the conditions? Yes or No")
+                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 40-70 wood material. Do you accept to the conditions? Yes or No")
                 choice1_ = input(">")
                 
                 if choice1_.lower() == "yes":
