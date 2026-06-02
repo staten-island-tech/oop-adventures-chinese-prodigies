@@ -2,7 +2,7 @@ def buy(self):
 
         print("\nChoose an item to buy:")
         print("1. Food Supply (Cost: 25)\n"
-              "Will give you +25 Food")
+              "Will give you +100 Food")
         # print("2. Trade Caravan (Cost: 50)\n"
         #       "dont know what this does")
 
@@ -12,7 +12,7 @@ def buy(self):
 
             if self.wealth >= 25:
                 self.wealth -= 25
-                self.food += 50
+                self.food += 100
 
                 print("You bought food supplies!\n")
 
