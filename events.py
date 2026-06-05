@@ -53,7 +53,13 @@ def invasion_event(kingdom):
         print("\nAN ENEMY ARMY IS INVADING YOUR KINGDOM!..")
         time.sleep(1)
 
-        enemy_strength = int(kingdom.military * random.uniform(0.7, 1.2))
+        multiplier = 1 + kingdom.daynumber * 0.005
+
+        enemy_strength = int(
+        kingdom.military *
+        random.uniform(0.7, 1.2) *
+        multiplier
+        )
 
         print(f"Enemy army strength: {enemy_strength}")
         print(f"Your army strength: {kingdom.military}")

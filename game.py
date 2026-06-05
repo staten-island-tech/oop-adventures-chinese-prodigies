@@ -96,6 +96,7 @@ class Kingdom:
         self.house_count = 0
         self.saltmine=0
         self.farm1 = 0
+        self.force_buy_used = False
 
 
 
@@ -200,10 +201,18 @@ while True:
     if kingdom.wealth <=10:
         print("Your wealth is low...trade or you will die")
 
-    if kingdom.food <=0:
-        print("your men are starving!!!!!buy food!!!!!!!!!!(final chance)")
+    if kingdom.food <= 0:
+        if kingdom.force_buy_used:
+            print("Your people have starved.")
+            print("Game Over.")
+            break
+
+        print("Your men are starving!!!!! buy food!!!!!!!!!! (final chance)")
         force_buy(kingdom)
+
         if kingdom.food <= 0:
+            print("Your people have starved.")
+            print("Game Over.")
             break
 
 

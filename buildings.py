@@ -210,7 +210,7 @@ class Barracks(Building):
         
         self.people -= amount
         self.soldiers += amount
-        kingdom.population += amount
+        kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
         print(f"Civilians in Barracks Now: {self.people}/{self.capacity}")
 
