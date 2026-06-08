@@ -43,7 +43,7 @@ def buy(self):
 
 def force_buy(self):
 
-    if self.force_buy_used:
+    if self.force_buy_used == True:
         print("You have already used your emergency food purchase.")
         print("Your empire has ended.")
         return
@@ -61,6 +61,7 @@ def force_buy(self):
         if self.wealth >= money:
             self.wealth -= money
             self.food += people
+            self.force_buy_used = True
 
             print("You bought it")
 
