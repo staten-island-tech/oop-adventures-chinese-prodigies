@@ -29,18 +29,19 @@ def make_political_decision(kingdom):
 
         if choice == "1":
 
-            print("\nThe people celebrate your kindness! Population increased by 20 as more people come to your empire and wealthy by 10. however 10 military are killed bc of free rights")
+            print(f"\nThe people celebrate your kindness! Population increased by {peeps} as more people come to your empire and wealthy by 10. however {milidied} military are killed bc of free rights")
 
-            kingdom.population += 20
+            kingdom.population += peeps
             kingdom.wealth += 10
-            kingdom.military -= 10
+            kingdom.military -= milidied
 
         elif choice == "2":
 
-            print("\nOrder is maintained through force. 20 mititary were needed and 10 people died from protesting")
-
-            kingdom.military += 20
-            kingdom.population -= 10
+            print(f"\nOrder is maintained through force. {milidied} mititary were needed and {peeps} people died from protesting")
+            milidied = random.randint(0, kingdom.military)
+            peeps = random.randint(0, kingdom.population)
+            kingdom.military =- milidied
+            kingdom.population -= peeps
 
         else:
             print("Invalid decision.")

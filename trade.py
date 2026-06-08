@@ -25,9 +25,12 @@ def trade_action(self):
                 print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 40-70 wood material. Do you accept to the conditions? Yes or No")
                 choice1_ = input(">")
                 
+                
+                
                 if choice1_.lower() == "yes":
                     tradealliance = True
                     self.trade.append(f"{test_country}")
+                    return True
 
 
                 else: 
@@ -37,6 +40,7 @@ def trade_action(self):
                     print(f"Luckily you survived but {armydied} army has died trying to defend u...  ")
 
                     self.military -= armydied
+                    return True
 
 
                         
@@ -44,6 +48,7 @@ def trade_action(self):
 
             else:
                 print("You dont have enough resources for the trade. ")
+                return False
 
         elif choice1_ == "2":
 
@@ -51,6 +56,8 @@ def trade_action(self):
 
             self.military -= lost1
             self.natural_resources -= lost1
+            return True
 
         else:
             print("Invalid decision.")
+            return False
