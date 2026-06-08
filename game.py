@@ -203,17 +203,20 @@ while True:
 
     if kingdom.food <= 0:
         if kingdom.force_buy_used:
+            print("You have already used your emergency food purchase.")
             print("Your people have starved.")
             print("Game Over.")
             break
+
+
 
         print("Your men are starving!!!!! buy food!!!!!!!!!! (final chance)")
         force_buy(kingdom)
 
-        if kingdom.food <= 0:
-            print("Your people have starved.")
-            print("Game Over.")
-            break
+        # if kingdom.food <= 0:
+        #     print("Your people have starved.")
+        #     print("Game Over.")
+        #     break
 
 
     if kingdom.food <=10:
