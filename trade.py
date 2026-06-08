@@ -50,7 +50,7 @@ def trade_action(self):
             print(f"{test_country} was extremely mad and attempted to steal from u. you lost {lost_mat} wood/metal and {lost1} military trying to defend")
 
             self.military -= lost1
-            self.natural_resources -= lost_mat
+            self.natural_resources -= lost1
 
         else:
             print("Invalid decision.")

@@ -129,45 +129,45 @@ while True:
     choice = input("> ")
 
     if choice == "1":
-        build(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if build(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "2":
-        farm(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if farm(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "3":
-        train_army(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if train_army(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "4":
-        buy(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
+        if buy(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
 
     elif choice == "5":
-        make_decision(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if make_decision(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "6":
-        trade_action(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if trade_action(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "7":
-        gather_resources(kingdom)
-        input("\nPress Enter to continue...")
-        trigger_event(kingdom)
-        day(kingdom)
+        if gather_resources(kingdom):
+            input("\nPress Enter to continue...")
+            trigger_event(kingdom)
+            day(kingdom)
 
     elif choice == "8":
         show_status(kingdom)

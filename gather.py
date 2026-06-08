@@ -8,17 +8,17 @@ def gather_resources(self):
 
                 if amount_input.strip() == "":
                         print("Insufficient amount of people/invalid option")
-                        continue
+                        return False
 
                 if not amount_input.isdigit():
                         print("Insufficient amount of people/invalid option")
-                        continue
+                        return False
         
                 amount = int(amount_input)
 
                 if amount <= 0 or amount > self.population:
                         print("You dont have enough population")
-                        continue
+                        return False
 
                 resources_found = amount*random.randint(3, 10)+2
 
@@ -31,5 +31,6 @@ def gather_resources(self):
 
                 print(f"\nYour {amount} workers gathered {resources_found} natural resources!...BUT {people} people died from overworking in the sun")
                 break
+                return True
 
                 

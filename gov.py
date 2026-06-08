@@ -9,11 +9,14 @@ def make_decision(kingdom):
 
     if decision == "1":
          make_political_decision(kingdom)
+         return True
 
     elif decision == "2":
          fight(kingdom)      
+         return True
     else:
         print("\nInvalid choice")
+        return False
     
     
 def make_political_decision(kingdom):
@@ -41,6 +44,7 @@ def make_political_decision(kingdom):
 
         else:
             print("Invalid decision.")
+            make_political_decision(kingdom)
 
 def fight(kingdom):
         country = ["China", "England", "Ottoman", "Safavid", "Mughal", "Spain", "Mali" , "Mongols"]

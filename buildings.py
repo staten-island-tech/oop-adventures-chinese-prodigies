@@ -41,8 +41,10 @@ def build(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A House was built!")
+                return True
             else:
                 print("Not enough wealth or natural resources!")
+                return False
 
         elif choice == "2":
 
@@ -57,8 +59,10 @@ def build(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Farm was built!")
+                return True
             else:
                 print("Not enough wealth or natural resources!")
+                return False
 
         elif choice == "3":
 
@@ -71,8 +75,10 @@ def build(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Barracks was built!")
+                return True
             else:
                 print("Not enough wealth or natural resources!")
+                return False
 
         elif choice == "4":
 
@@ -86,11 +92,14 @@ def build(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print("A Salt Mine was built!")
+                return True
             else:
                 print("Not enough wealth or natural resources!")
+                return False
 
         else:
             print("Invalid choice.")
+            return False
 
 class Housing(Building):
     def __init__(self):
@@ -139,6 +148,7 @@ class Farm(Building):
         print(
             f"\nYour farmers produced {food_gained} food using {kingdom.farm1} farm(s)!"
         )
+        return True
 
 def farm(self):
 
@@ -149,6 +159,8 @@ def farm(self):
             return
             
     print("You do not have a farm.")
+    return False
+    
 
 class Salt_Mines(Building):
     def __init__(self):
@@ -190,23 +202,25 @@ class Barracks(Building):
     def add_people(self, kingdom, amount):
         if kingdom.population < amount:
             print("Not enough Civilians in the kingdom")
-            return
+            return False
         
         if self.people + amount <= self.capacity:
             self.people += amount
             kingdom.population -= amount
             print(f"{amount} civilian/people entered the barrack")
             print(f"{self.people} number of civilians/people are in the barracks now")
+            return True
         else:
             print("Not Enough Space")
+            return False
 
     def train_soldiers(self, kingdom, amount):
         if self.people < amount:
             print("Not enough Civilians in Baraacks")
-            return
+            return False
         if self.soldiers + amount > self.capacity:
             print("Not enough space in barracks!")
-            return
+            return False
         
         self.people -= amount
         self.soldiers += amount
@@ -248,4 +262,5 @@ def train_army(self):
             return
             
     print("You do not have a barracks.")
+    return False
 

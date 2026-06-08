@@ -17,9 +17,11 @@ def buy(self):
                 self.food += 100
 
                 print("You bought food supplies!\n")
+                return True
 
             else:
                 print("Not enough wealth!")
+                return False
 
         elif choice == "2":
 
@@ -28,12 +30,15 @@ def buy(self):
                 self.trade += 25
 
                 print("You bought a trade caravan!")
+                return True
 
             else:
                 print("Not enough wealth!")
+                return False
 
         else:
             print("Invalid choice.")
+            return False
 
 
 def force_buy(self):
