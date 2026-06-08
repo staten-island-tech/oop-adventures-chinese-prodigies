@@ -37,7 +37,12 @@ def buy(self):
 
 
 def force_buy(self):
-        
+
+    if self.force_buy_used:
+        print("You have already used your emergency food purchase.")
+        print("Your empire has ended.")
+        return
+            
     people = self.population * 1.5
     money = self.wealth * .75
     print("\nYou HAVE to buy this or your kingdom will fall")
@@ -57,8 +62,8 @@ def force_buy(self):
     elif choice == "2":
         print("Your empire has ended")
     else:
-            print("Invalid choice:)")
-            return
+        print("Invalid choice:)")
+        return
 
 
 

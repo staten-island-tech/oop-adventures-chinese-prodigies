@@ -10,7 +10,7 @@ def make_decision(kingdom):
     if decision == "1":
          make_political_decision(kingdom)
 
-    if decision == "2":
+    elif decision == "2":
          fight(kingdom)      
     else:
         print("\nInvalid choice")
@@ -48,7 +48,10 @@ def fight(kingdom):
         print(f"\nYou decided to fight the {test_country}")
         time.sleep(1)
 
-        enemy_strength = random.randint(10, 80)
+        enemy_strength = random.randint(
+        10 + kingdom.daynumber // 2,
+        80 + kingdom.daynumber
+        )
 
         print(f"{test_country} army strength: {enemy_strength}")
         print(f"Your army strength: {kingdom.military}")
