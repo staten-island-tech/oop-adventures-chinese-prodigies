@@ -29,13 +29,25 @@ def day(self):
     "Mali",
     "Mongols"
 ]
+    
+    if self.trade:
+        print(f"\nYou have {len(self.trade)} trade allies.")
 
     for country in self.trade:
         if country in trade_countries:
-            mat_trade = random.randint(40, 70)+4
-            coin_trade = random.randint(10, 50)+2
+            mat_trade = random.randint(40, 70) + 4
+            coin_trade = random.randint(10, 50) + 2
+
             if self.natural_resources > mat_trade:
                 self.natural_resources -= mat_trade
                 self.wealth += coin_trade
 
-                print(f"Your alliances {self.trade} has traded you {coin_trade} coins for {mat_trade} wood/metal")
+                print(
+                    f"{country} traded you {coin_trade} coins "
+                    f"for {mat_trade} wood/metal."
+                )
+            else:
+                print(
+                    f"{country} wanted to trade, but you only have "
+                    f"{self.natural_resources} resources."
+                )
