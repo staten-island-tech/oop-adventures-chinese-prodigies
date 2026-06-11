@@ -186,13 +186,13 @@ class Salt_Mines(Building):
         
 
 class Barracks(Building):
-    def __init__(self,):
+    def __init__(self):
         super().__init__("Barracks")
         self.capacity = 50
         self.soldiers = 0
         self.people = 0
         self.name = "Barracks"
-        
+
     def __str__(self):
         return self.name
 
@@ -201,11 +201,14 @@ class Barracks(Building):
 
 
     def add_people(self, kingdom, amount):
+
+        total_capacity = kingdom.barak * 50
+
         if kingdom.population < amount:
             print("Not enough Civilians in the kingdom")
             return False
         
-        if self.people + amount <= self.capacity:
+        if self.people + amount <= total_capacity:
             self.people += amount
             kingdom.population -= amount
             print(f"{amount} civilian/people entered the barrack")
@@ -216,6 +219,9 @@ class Barracks(Building):
             return False
 
     def train_soldiers(self, kingdom, amount):
+
+        total_capacity = kingdom.barak * 50
+
         if self.people < amount:
             print("Not enough Civilians in Baraacks")
             return False
@@ -227,13 +233,13 @@ class Barracks(Building):
         self.soldiers += amount
         kingdom.military += amount
         print(f"Trained {amount} civilians into soldiers!")
-        print(f"Civilians in Barracks Now: {self.people}/{self.capacity}")
+        print(f"Civilians in Barracks Now: {self.people}/{total_capacity}")
 
     def menu(self, kingdom):
 
         print("\n=== Barracks ===")
         print("1. Send civilians to barracks\n"
-              "This option sends civilians from your empire into the barracks, subtracting your population, capacity is 50")
+              "This option sends civilians from your empire into the barracks, subtracting your population, capacity is dependant on the amount of barracks you have")
         print("2. Train soldiers\n"
               "This option gives you the option to turn the civilians inside your barracks into soldiers\n"
                 "which will be added to your military and taken out of the barracks automatically")
