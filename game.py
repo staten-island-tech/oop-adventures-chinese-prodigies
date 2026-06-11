@@ -39,7 +39,7 @@ type = input("Where is your empire located?\n"
 if type == "1":
     print("You have chosen Forest Civilization.")
     population = 18
-    food = 200
+    food = 300
     military = 6
     wealth = 175
     natural_resources = 100
@@ -49,7 +49,7 @@ if type == "1":
 elif type == "2":
     print("You have chosen Desert Civilization.")
     population = 23
-    food = 225
+    food = 325
     military = 6
     wealth = 150
     natural_resources = 80
@@ -57,7 +57,7 @@ elif type == "2":
 elif type == "3":
     print("You have chosen Mountain Civilization.")
     population = 14
-    food = 180
+    food = 380
     military = 5
     wealth = 200
     natural_resources = 120
@@ -65,7 +65,7 @@ elif type == "3":
 elif type == "4":
     print("You have chosen Island Civilization.")
     population = 20
-    food = 217
+    food = 317
     military = 15
     wealth = 200
     natural_resources = 90
@@ -74,7 +74,7 @@ else:
     print("Invalid choice")
     print("You been assigned to the casual forest option...")
     population = 18
-    food = 200
+    food = 300
     military = 6
     wealth = 100
     natural_resources = 100
