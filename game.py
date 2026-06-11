@@ -96,6 +96,7 @@ class Kingdom:
         self.house_count = 0
         self.saltmine=0
         self.farm1 = 0
+        self.barak = 0 
         self.force_buy_used = False
 
 
@@ -184,6 +185,7 @@ while True:
         print("invalid option ")
 
     if kingdom.population <=0:
+        print("no more people bye bye")
         print("\nYour empire has fallen...")
         print("Game Over.")
         break
@@ -193,6 +195,7 @@ while True:
 
 
     if kingdom.wealth <=0:
+        print("Your poor bye bye")
         print("\nYour empire has fallen...")
         print("Game Over.")
         break

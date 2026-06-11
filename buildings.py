@@ -71,6 +71,7 @@ def build(self):
                 self.natural_resources -= 15
                 self.military += 25
                 self.buildings.append(Barracks())
+                self.barak +=1
                 print("Building...")
                 time.sleep(2)  # Wait 2 seconds
 
