@@ -172,7 +172,6 @@ while True:
     elif choice == "8":
         show_status(kingdom)
         input("\nPress Enter to continue...")
-        trigger_event(kingdom)
 
     elif choice == "9":
         
