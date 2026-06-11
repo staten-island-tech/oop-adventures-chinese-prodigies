@@ -30,7 +30,6 @@ def gather_resources(self):
                 time.sleep(2)  # Wait 2 seconds
 
                 print(f"\nYour {amount} workers gathered {resources_found} natural resources!...BUT {people} people died from overworking in the sun")
-                break
                 return True
 
                 
