@@ -22,7 +22,7 @@ def trade_action(self):
             if max_mat >= trade_mat:
                 self.natural_resources -= trade_mat 
                 self.wealth+= trade_wealth 
-                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 1-10 silver coins everyday in exchange for 40-70 wood material. Do you accept to the conditions? Yes or No")
+                print(f"{test_country} was extremely pleased with the trade and would like to become an alliance. You will gain 10-50 silver coins everyday in exchange for 40-70 wood material. Do you accept to the conditions? Yes or No")
                 choice1_ = input(">")
                 
                 
