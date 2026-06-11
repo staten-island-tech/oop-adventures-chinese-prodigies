@@ -30,7 +30,8 @@ def make_political_decision(kingdom):
         if choice == "1":
 
             print(f"\nThe people celebrate your kindness! Population increased by {peeps} as more people come to your empire and wealthy by 10. however {milidied} military are killed bc of free rights")
-
+            milidied = random.randint(0, kingdom.military)
+            peeps = random.randint(0, kingdom.population)
             kingdom.population += peeps
             kingdom.wealth += 10
             kingdom.military -= milidied
@@ -45,7 +46,7 @@ def make_political_decision(kingdom):
 
         else:
             print("Invalid decision.")
-            make_political_decision(kingdom)
+            return False
 
 def fight(kingdom):
         country = ["China", "England", "Ottoman", "Safavid", "Mughal", "Spain", "Mali" , "Mongols"]
