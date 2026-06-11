@@ -12,6 +12,9 @@ def show_status(kingdom):
         print(f"Wealth: {kingdom.wealth} silver coins")
         print(f"Trade Alliances: {kingdom.trade}")
         print(f"Natural Resources: {kingdom.natural_resources}")
-        print(f"Buildings: {kingdom.buildings}")
+        print(f"Houses: {kingdom.house_count}")
+        print(f"Farms: {kingdom.farm1}")
+        print(f"Saltmines: {kingdom.saltmine}")
+        print(f"Barracks: {kingdom.barak}")
 
         print("====================================")
