@@ -239,7 +239,8 @@ class Barracks(Building):
 
         print("\n=== Barracks ===")
         print("1. Send civilians to barracks\n"
-              "This option sends civilians from your empire into the barracks, subtracting your population, capacity is dependant on the amount of barracks you have")
+              "This option sends civilians from your empire into the barracks, subtracting your population, capacity is dependant on the amount of barracks you have\n"
+              "50 people per barracks")
         print("2. Train soldiers\n"
               "This option gives you the option to turn the civilians inside your barracks into soldiers\n"
                 "which will be added to your military and taken out of the barracks automatically")
